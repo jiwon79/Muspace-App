@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, TextInput } from 'react-native'
 
 export default function Login({ route, navigation }) {
   const { handleLogged, otherParam } = route.params;
@@ -7,8 +7,15 @@ export default function Login({ route, navigation }) {
   return (
     <View>
       <Text>Login page</Text>
+      <TextInput
+        placeholder="name"
+      />
+      <TextInput
+        placeholder="password"
+      />
+      
       <Button
-        title="login button"
+        title="login"
         onPress = {() => handleLogged()}
       />
     </View>
