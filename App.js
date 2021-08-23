@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Button, SafeAreaView, Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -11,29 +11,52 @@ import LoginScreen from './components/auth/Login';
 const Stack = createStackNavigator();
 
 export default function App() {
+  const [logged, setLogged] = useState(false);
+
+  const handleLogged = () => {
+    console.log(logged);
+    setLogged(!logged);
+  }
+
+  if (!logged) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Landing">
+            <Stack.Screen 
+              name="Landing" 
+              component={LandingScreen}
+              option={{
+                headerShown: false
+              }}  
+            />
+            <Stack.Screen 
+              name="Register" 
+              component={RegisterScreen}
+            />
+            <Stack.Screen 
+              name="Login" 
+              component={LoginScreen}
+              initialParams={{handleLogged}}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaView>
+    );
+  }
+
   return (
     <SafeAreaView style={styles.container}>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Landing">
-          <Stack.Screen 
-            name="Landing" 
-            component={LandingScreen}
-            option={{
-              headerShown: false
-            }}  
-          />
-          <Stack.Screen 
-            name="Register" 
-            component={RegisterScreen}
-          />
-          <Stack.Screen 
-            name="Login" 
-            component={LoginScreen}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+      <View>
+        <Text>Logged</Text>
+        <Button
+          title="logout button"
+          onPress = {() => handleLogged()}
+        />
+      </View>
     </SafeAreaView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
