@@ -48,13 +48,12 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-      <View>
-        <Text>Logged</Text>
+        <Text>메인 페이지</Text>
+        <Text>로그인 됨</Text>
         <Button
           title="logout button"
           onPress = {() => handleLogged()}
         />
-      </View>
     </SafeAreaView>
   )
 }
