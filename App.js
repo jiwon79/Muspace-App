@@ -6,7 +6,7 @@ import LandingNav from './Navigations/LandingNav';
 import MainBottomNav from './Navigations/MainBottomNav';
 
 export default function App() {
-  const [logged, setLogged] = useState(false);
+  const [logged, setLogged] = useState(true);
 
   const handleLogged = () => {
     console.log(logged);
