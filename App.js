@@ -14,7 +14,7 @@ import MySpace from './Screens/MySpace';
 const Stack = createStackNavigator();
 
 export default function App() {
-  const [logged, setLogged] = useState(false);
+  const [logged, setLogged] = useState(true);
 
   const handleLogged = () => {
     console.log(logged);
