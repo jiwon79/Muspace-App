@@ -1,12 +1,12 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-import Header_my from './../../components/Header_my';
+import MySpace_Header from '../../components/MySpace_Header';
 
 export default function index() {
   return (
     <View style={styles.container}>
-      <Header_my/>
+      <MySpace_Header/>
       <Text>My Space Main page</Text>
     </View>
   )

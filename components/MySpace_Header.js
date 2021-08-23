@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 
-export default function Header_my() {
+export default function MySpace_Header() {
   return (
     <View style={styles.container}>
       <Ionicons name='musical-note' style={styles.icon}/>
