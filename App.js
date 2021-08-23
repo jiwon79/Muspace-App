@@ -9,6 +9,8 @@ import LandingScreen from './Screens/auth/Landing';
 import RegisterScreen from './Screens/auth/Register';
 import LoginScreen from './Screens/auth/Login';
 
+import MySpace from './Screens/MySpace';
+
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -48,8 +50,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>메인 페이지</Text>
-      <Text>로그인 됨</Text>
+      <MySpace/>
       <Button
         title="logout button"
         onPress = {() => handleLogged()}
