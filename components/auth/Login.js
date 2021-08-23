@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 export default function Login() {
   return (
     <View>
-      <Text>login page</Text>
+      <Text>Login page</Text>
     </View>
   )
 }
