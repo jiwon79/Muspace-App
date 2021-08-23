@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, SafeAreaView, Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Constants from 'expo-constants';
 
 import LandingScreen from './Screens/auth/Landing';
@@ -12,6 +13,7 @@ import LoginScreen from './Screens/auth/Login';
 import MySpace from './Screens/MySpace';
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   const [logged, setLogged] = useState(true);
@@ -50,11 +52,22 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <MySpace/>
-      <Button
+      <NavigationContainer>
+        <Tab.Navigator 
+        initialRouteName="MySpace"
+        screenOptions={{
+          headerShown: false
+        }}>
+          <Tab.Screen 
+          name="MySpace" 
+          component={MySpace}
+          />
+        </Tab.Navigator>
+      </NavigationContainer>
+      {/* <Button
         title="logout button"
         onPress = {() => handleLogged()}
-      />
+      /> */}
     </SafeAreaView>
   )
 }
