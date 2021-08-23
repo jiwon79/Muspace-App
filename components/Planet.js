@@ -14,13 +14,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '50%',
     left: '50%',
-    height: vw(120),
-    width: vw(120),
+    height: vw(90),
+    width: vw(90),
     transform: [
-      { translateY: vw(-60) },
-      { translateX: vw(-60) }
+      { translateY: vw(-45) },
+      { translateX: vw(-45) }
     ],
-    borderRadius: vw(60),
+    borderRadius: vw(45),
     backgroundColor: '#aaaaaa'
   }
 })
