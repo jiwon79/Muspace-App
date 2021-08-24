@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, Text, Button } from 'react-native'
 
-import Planet from './../../components/Planet';
+import Planet from '../../components/Planet';
 
-export default function OnPlanet({ navigation }) {
+export default function InPlanet({ navigation }) {
   return (
     <View>
       <Text>on planet</Text>

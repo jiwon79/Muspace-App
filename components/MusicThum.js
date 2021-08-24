@@ -8,7 +8,7 @@ export default function MusicThum({ navigation }) {
       <ImageBackground source={require("../assets/snoo.jpg")} style={styles.bgImage}/>
       <TouchableOpacity
         activeOpacity={0.8}
-        onPress={() => navigation.navigate('OnPlanet')}
+        onPress={() => navigation.navigate('InPlanet')}
         style={styles.button}
       />
     </View>

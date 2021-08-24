@@ -4,14 +4,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import OuterPlanet from './../Screens/MySpace/OuterPlanet';
-import OnPlanet from '../Screens/MySpace/OnPlanet';
+import InPlanet from '../Screens/MySpace/InPlanet';
 
 const Stack = createStackNavigator();
 
 export default function MySpaceNav() {
   return (
     <Stack.Navigator 
-    initialRouteName="Home"
+    initialRouteName="InPlanet"
     screenOptions={{
       headerShown: false,
       animationEnabled: false
@@ -25,8 +25,8 @@ export default function MySpaceNav() {
         }}  
       />
       <Stack.Screen 
-        name="OnPlanet" 
-        component={OnPlanet}
+        name="InPlanet" 
+        component={InPlanet}
       />
     </Stack.Navigator>
   )
