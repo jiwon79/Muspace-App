@@ -1,5 +1,5 @@
-import React from 'react'
-import { View, Text, Button, FlatList } from 'react-native'
+import React, { useEffect } from 'react'
+import { View, Text, Button, FlatList, Animated } from 'react-native'
 
 import Planet from '../../components/Planet';
 import Hobby from '../../components/Hobby';
@@ -18,7 +18,7 @@ export default function InPlanet({ navigation }) {
       <FlatList
         keyExtractor={item => item.toString()}
         data={hobbyList}
-        renderItem={(hobby) => <Hobby hobby={hobby.item}/>}
+        renderItem={(hobby) => <Hobby hobby={hobby.item} navigation={navigation}/>}
       />
     </View>
   )

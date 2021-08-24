@@ -1,11 +1,14 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-export default function Hobby({ hobby }) {
+export default function Hobby({ hobby, navigation }) {
   return (
-    <View style={styles.hobby}>
+    <TouchableOpacity 
+      style={styles.hobby}
+      onPress={() => navigation.navigate('HobbyFeed')}  
+    >
       <Text style={styles.text}>{hobby}</Text>
-    </View>
+    </TouchableOpacity>
   )
 }
 

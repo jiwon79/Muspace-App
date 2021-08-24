@@ -51,6 +51,6 @@ const styles = StyleSheet.create({
       { translateY: -30 },
       { rotateZ: '90deg'}
     ],
-    borderBottomColor: "blue",
+    borderBottomColor: "#8ec5fc",
   }
 })
