@@ -12,8 +12,8 @@ export default function Planet() {
 const styles = StyleSheet.create({
   planet: {
     position: 'absolute',
-    top: '50%',
-    left: '50%',
+    top: vh(50),
+    left: vw(50),
     height: vw(90),
     width: vw(90),
     transform: [
