@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 export default function MySpaceNav() {
   return (
     <Stack.Navigator 
-    initialRouteName="InPlanet"
+    initialRouteName="OuterPlanet"
     screenOptions={{
       headerShown: false,
       animationEnabled: false
