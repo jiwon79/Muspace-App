@@ -5,7 +5,7 @@ export default function Hobby({ hobby, navigation }) {
   return (
     <TouchableOpacity 
       style={styles.hobby}
-      onPress={() => navigation.navigate('HobbyFeed')}  
+      onPress={() => navigation.navigate('HobbyFeed')}
     >
       <Text style={styles.text}>{hobby}</Text>
     </TouchableOpacity>

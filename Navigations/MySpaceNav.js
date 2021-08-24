@@ -26,7 +26,7 @@ export default function MySpaceNav() {
         }}  
       />
       <Stack.Screen 
-        name="InPlanet" 
+        name="InPlanet"
         component={InPlanet}
       />
       <Stack.Screen 
