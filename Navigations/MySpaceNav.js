@@ -1,0 +1,33 @@
+import React from 'react';
+import { View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import OuterPlanet from './../Screens/MySpace/OuterPlanet';
+import OnPlanet from '../Screens/MySpace/OnPlanet';
+
+const Stack = createStackNavigator();
+
+export default function MySpaceNav() {
+  return (
+    <Stack.Navigator 
+    initialRouteName="Home"
+    screenOptions={{
+      headerShown: false,
+      animationEnabled: false
+    }}
+    >
+      <Stack.Screen 
+        name="OuterPlanet" 
+        component={OuterPlanet}
+        option={{
+          headerShown: false
+        }}  
+      />
+      <Stack.Screen 
+        name="OnPlanet" 
+        component={OnPlanet}
+      />
+    </Stack.Navigator>
+  )
+}

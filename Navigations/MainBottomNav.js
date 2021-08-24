@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import MySpace from './../Screens/MySpace';
+import MySpaceNav from './MySpaceNav';
 import OurSpace from './../Screens/OurSpace';
 import SpaceJourney from './../Screens/SpaceJourney';
 
@@ -19,7 +19,7 @@ export default function MainBottomNav() {
         headerShown: false
       }}>
         <Tab.Screen name="OurSapce" component={OurSpace}/>
-        <Tab.Screen name="MySpace" component={MySpace}/>
+        <Tab.Screen name="MySpace" component={MySpaceNav}/>
         <Tab.Screen name="SpaceJourney" component={SpaceJourney}/>
       </Tab.Navigator>
     </NavigationContainer>
