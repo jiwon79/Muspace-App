@@ -9,7 +9,7 @@ export default function HobbyFeed({ navigation: { goBack }, route }) {
 
   return (
     <View>
-      <HobbyFeedHeader/>
+      <HobbyFeedHeader goBack={() => goBack()}/>
       <Button 
         title="go back"
         onPress={()=>goBack()}
