@@ -1,10 +1,17 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
 
-export default function HobbyFeed() {
+export default function HobbyFeed({ navigation: { goBack }, route }) {
+  console.log(route)
+  const hobby = route.params.hobby;
+
   return (
     <View>
-      <Text>Hobby Feed</Text>
+      <Button 
+        title="go back"
+        onPress={()=>goBack()}
+        />
+      <Text>{hobby} Feed</Text>
     </View>
   )
 }
