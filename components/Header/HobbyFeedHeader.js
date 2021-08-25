@@ -9,7 +9,7 @@ export default function HobbyFeedHeader({ hobby, navigation }) {
         <AntDesign name='left'style={styles.icon}/>
       </TouchableOpacity>
       <Text style={styles.text}>{hobby}</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('HobbyContentWrite')}>
+      <TouchableOpacity>
         <AntDesign name='plus'style={styles.icon}/>
       </TouchableOpacity>
     </View>
