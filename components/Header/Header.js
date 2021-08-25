@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <View style={styles.container}>
       <Ionicons name='musical-note' style={styles.icon}/>
-      <Text>myspace header</Text>
+      <Text style={styles.text}>myspace header</Text>
       <Feather name='more-vertical' style={styles.icon}/>
     </View>
   )
@@ -17,9 +17,12 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 10
+    padding: 10,
   },
   icon: {
     fontSize: 24
+  },
+  text: {
+    fontSize: 20
   }
 })

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { View, Text, Button, FlatList, Animated, StyleSheet } from 'react-native'
 import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
 
-import Header from '../../components/Header';
+import Header from '../../components/Header/Header';
 import Planet from '../../components/Planet';
 import Hobby from '../../components/Hobby';
 
