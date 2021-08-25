@@ -9,7 +9,6 @@ import FeedWrite from '../Screens/Hobby/FeedWrite';
 const Stack = createStackNavigator();
 
 export default function MySpaceNav({ navigatoin, route }) {
-  console.log(route);
   return (
     <Stack.Navigator 
     initialRouteName="Feed"
@@ -23,7 +22,9 @@ export default function MySpaceNav({ navigatoin, route }) {
         option={{
           headerShown: false
         }}
-        initialParams={{ hobby: route.params.hobby }}
+        initialParams={
+          { hobby: route.params.hobby }
+        }
       />
       <Stack.Screen 
         name="FeedWrite"
