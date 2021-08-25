@@ -11,15 +11,13 @@ export default function Planet() {
 
 const styles = StyleSheet.create({
   planet: {
+    // justifyContent: 'center',
+    // alignItems: 'center',
     position: 'absolute',
-    top: vh(50),
-    left: vw(50),
+    top: vh(50)-vw(45),
+    alignSelf: 'center',
     height: vw(90),
     width: vw(90),
-    transform: [
-      { translateY: vw(-45) },
-      { translateX: vw(-45) }
-    ],
     borderRadius: vw(45),
     backgroundColor: '#aaaaaa'
   }
