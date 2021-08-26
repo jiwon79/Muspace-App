@@ -12,6 +12,10 @@ export default function InPlanet({ navigation }) {
   const ScaleAnim = useRef(new Animated.Value(1)).current;
   const TranslateAnim = useRef(new Animated.Value(vw(-10))).current;
 
+  const hobbyComponents = hobbyList.map((hobby, index) =>(
+    <Hobby key={index} hobby={hobby} navigation={navigation}/>
+  ));
+
   useEffect(() => {
     const planetScale = Animated.timing(
       ScaleAnim,
@@ -51,15 +55,9 @@ export default function InPlanet({ navigation }) {
         <Planet/>
       </Animated.View>
       
-      <Button
-      title="Outer Planet"
-      onPress={() => navigation.navigate('OuterPlanet')}
-      />
-      <FlatList
-        keyExtractor={item => item.toString()}
-        data={hobbyList}
-        renderItem={(hobby) => <Hobby hobby={hobby.item} navigation={navigation}/>}
-      />
+      <View style={styles.hobbyComponents}>
+        {hobbyComponents}
+      </View>
     </View>
   )
 }
@@ -67,5 +65,16 @@ export default function InPlanet({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  hobbyComponents: {
+    position: 'absolute',
+    bottom: '20%',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingLeft: '10%',
+    paddingRight: '10%',
+    flexWrap: 'wrap'
   }
 })

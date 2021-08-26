@@ -12,10 +12,6 @@ export default function OuterPlanet({ navigation }) {
       <Header/>
       <Planet/>
       <MusicThum navigation={navigation}/>
-      <Button
-      title="in planet"
-      onPress={() => navigation.navigate("InPlanet")}
-      />
     </View>
   )
 }
