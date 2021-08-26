@@ -6,7 +6,7 @@ import LandingNav from './Navigations/LandingNav';
 import MainBottomNav from './Navigations/MainBottomNav';
 
 export default function App() {
-  const [logged, setLogged] = useState<boolean>(true);
+  const [logged, setLogged] = useState<boolean>(false);
   
   const handleLogged = () => {
     console.log(logged);
@@ -24,10 +24,6 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <MainBottomNav/>
-      {/* <Button
-        title="logout button"
-        onPress = {() => handleLogged()}
-      /> */}
     </SafeAreaView>
   )
 }
