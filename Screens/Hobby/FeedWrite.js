@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { View, Text, Button, Image, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
+import { FontAwesome } from '@expo/vector-icons'; 
 
 import HobbyContentWriteHeader from '../../components/Header/HobbyContentWriteHeader';
+import ButtonModule from '../../components/atom/ButtonModule';
 
 export default function FeedWrite({ navigation, route }) {
   const hobby = route.params.hobby;
@@ -39,8 +41,6 @@ export default function FeedWrite({ navigation, route }) {
       quality: 1,
     });
 
-    console.log(result);
-
     if (!result.cancelled) {
       setImage(result.uri);
     }
@@ -52,9 +52,19 @@ export default function FeedWrite({ navigation, route }) {
         navigation={navigation}
         hobby={hobby}
       />
-      <Text style={styles.text}>feed write</Text>
-      <Button title="Pick an image from camera roll" onPress={pickImage} />
-      {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+      {image ? 
+        <Image 
+          source={{ uri: image }} 
+          style={styles.image} 
+        />
+        :
+        <TouchableOpacity 
+          onPress={pickImage}
+          style={styles.pickImageButton}
+        >
+          <FontAwesome name="plus" style={styles.imageButtonIcon} />
+        </TouchableOpacity>
+      }
 
       <TextInput
         onChangeText={setTitle}
@@ -69,9 +79,9 @@ export default function FeedWrite({ navigation, route }) {
         placeholder="내용"
         style={styles.contentInput}
       />
-      <TouchableOpacity style={styles.submitButton}>
-        <Text style={styles.text}>Submit</Text>
-      </TouchableOpacity>
+      <ButtonModule
+        text="Submit"
+      />
     </View>
   )
 }
@@ -80,18 +90,39 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center'
   },
+  image: {
+    width: 200,
+    height: 200,
+    alignSelf: 'center'
+  },
+  pickImageButton: {
+    justifyContent: 'center',
+    width: 200,
+    height: 200,
+    borderWidth: 1,
+    borderRadius: 20,
+    alignSelf: 'center'
+  },
+  imageButtonIcon: {
+    textAlign: 'center',
+    fontSize: 24,
+    color: '#000'
+  },
   text: {
     textAlign: 'center'
   },
   titleInput: {
-    fontSize: 25
-  },
-  contentInput: {
+    height: 40,
+    marginLeft: '8%',
+    marginRight: '8%',
+    borderBottomWidth: 1,
     fontSize: 20
   },
-  submitButton: {
-    width: '40%',
-    height: 30,
-    backgroundColor: '#eeaadd'
+  contentInput: {
+    height: 40,
+    marginLeft: '8%',
+    marginRight: '8%',
+    marginBottom: 30,
+    fontSize: 20,
   }
 })
