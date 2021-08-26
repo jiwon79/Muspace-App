@@ -13,16 +13,20 @@ export default function HobbyContent({ imageURL, title, content }) {
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%'
+    width: '100%',
+    alignItems: 'center'
   },
   image: {
     width: 250,
-    height: 250
+    height: 250,
+    marginTop: 20
   },
   title: {
+    marginTop: 15,
     fontSize: 30
   },
   content: {
+    marginTop: 10,
     fontSize: 20
   }
 })

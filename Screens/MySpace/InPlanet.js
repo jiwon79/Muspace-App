@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   },
   hobbyComponents: {
     position: 'absolute',
-    bottom: '20%',
+    bottom: '15%',
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
