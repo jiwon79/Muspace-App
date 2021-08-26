@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, SafeAreaView, StatusBar } from 'react-native';
+import { StyleSheet, SafeAreaView, StatusBar, Button } from 'react-native';
 import Constants from 'expo-constants';
 
 import LandingNav from './Navigations/LandingNav';
@@ -9,7 +9,6 @@ export default function App() {
   const [logged, setLogged] = useState<boolean>(false);
   
   const handleLogged = () => {
-    console.log(logged);
     setLogged(!logged);
   }
 
@@ -24,6 +23,10 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <MainBottomNav/>
+      {/* <Button
+        title="logout button"
+        onPress = {() => handleLogged()}
+      /> */}
     </SafeAreaView>
   )
 }

@@ -5,12 +5,14 @@ import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
 import Header from '../../components/Header/Header';
 import Planet from '../../components/Planet';
 import Hobby from '../../components/Hobby';
+import OurSpace from '../OurSpace';
 
 const hobbyList = ['취미', '운동', '음악', '글귀', '여행', '책'];
 
 export default function InPlanet({ navigation }) {
   const ScaleAnim = useRef(new Animated.Value(1)).current;
   const TranslateAnim = useRef(new Animated.Value(vw(-10))).current;
+  const FadeInAnim = useRef(new Animated.Value(0)).current;
 
   const hobbyComponents = hobbyList.map((hobby, index) =>(
     <Hobby key={index} hobby={hobby} navigation={navigation}/>
@@ -35,11 +37,20 @@ export default function InPlanet({ navigation }) {
       }
     );
 
-    Animated.parallel([
-      planetScale,
-      planetTranslate
+    const hobbyFadeIn = Animated.timing(
+      FadeInAnim,
+      {
+        toValue: 1,
+        duration: 500,
+        useNativeDriver: true
+      }
+    )
+    
+    Animated.sequence([
+      Animated.parallel([planetScale, planetTranslate]), 
+      hobbyFadeIn
     ]).start();
-  }, [ScaleAnim, TranslateAnim])
+  }, [ScaleAnim, TranslateAnim, FadeInAnim])
 
   return (
     <View style={styles.container}>
@@ -55,9 +66,11 @@ export default function InPlanet({ navigation }) {
         <Planet/>
       </Animated.View>
       
-      <View style={styles.hobbyComponents}>
+      <Animated.View 
+        style={[styles.hobbyComponents, { opacity: FadeInAnim }]}
+      >
         {hobbyComponents}
-      </View>
+      </Animated.View>
     </View>
   )
 }
