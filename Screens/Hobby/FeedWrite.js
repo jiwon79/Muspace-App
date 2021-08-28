@@ -6,12 +6,15 @@ import { FontAwesome } from '@expo/vector-icons';
 
 import HobbyContentWriteHeader from '../../components/Header/HobbyContentWriteHeader';
 import ButtonModule from '../../components/atom/ButtonModule';
+import { Platform } from 'react-native';
 
 export default function FeedWrite({ navigation, route }) {
+  console.log(Platform.OS);
   const hobby = route.params.hobby;
+  const APIURL = 'http://1e14-121-152-26-223.ngrok.io/'
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [contents, setContents] = useState('');
   const [warning, setWarning] = useState('');
 
   useEffect(() => {
@@ -35,13 +38,14 @@ export default function FeedWrite({ navigation, route }) {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-      aspect: [4, 3],
+      aspect: [4, 4],
       quality: 1,
     });
 
     if (!result.cancelled) {
-      setImage(result.uri);
-      console.log(result.uri)
+      setImage(result);
+      console.log(result)
+      setWarning(result.uri);
     }
   };
 
@@ -50,7 +54,7 @@ export default function FeedWrite({ navigation, route }) {
       setWarning('제목을 입력해주세요!');
       return null;
     }
-    if (content == '')  {
+    if (contents == '')  {
       setWarning('내용을 입력해주세요!');
       return null;
     }
@@ -59,10 +63,43 @@ export default function FeedWrite({ navigation, route }) {
       return null;
     }
     setWarning('');
+    
+    // ImagePicker saves the taken photo to disk and returns a local URI to it
+    let localUri = Platform.OS === 'android' ? image.uri : image.uri.replace('file://', '')
+    let filename = localUri.split('/').pop();
+    let imageType = image.type
 
-    console.log(title)
-    console.log(content)
-    console.log(image)
+    // Upload the image using the fetch and FormData APIs
+    let formData = new FormData();
+    // Assume "photo" is the name of the form field the server expects
+    formData.append('file', { uri: localUri, name: filename, type: 'image/jpeg' });
+    formData.append('category',hobby)
+    formData.append('title', title)
+    formData.append('contents', contents)
+    console.log(formData)
+    
+    fetch('http://1e14-121-152-26-223.ngrok.io/post', {
+      body: formData,
+      method: 'POST',
+      headers: {
+        Accept: "application/json",
+        "content-type": "multipart/form-data",
+      }
+    })
+    .then(function (response) {
+      console.log(JSON.stringify(response));
+      setWarning(JSON.stringify(response));
+      console.log('전송 완료')
+    }).catch(function (error) {
+      console.log(error);
+      setWarning('네트워크 오류로 전송이 안되었습니다.')
+    }).then(function() {
+        console.log('end post')
+    });
+
+    // console.log(title)
+    // console.log(contents)
+    // console.log(image)
   }
 
   return (
@@ -73,7 +110,7 @@ export default function FeedWrite({ navigation, route }) {
       />
       {image ? 
         <Image 
-          source={{ uri: image }} 
+          source={{ uri: image.uri }} 
           style={styles.image} 
         />
         :
@@ -93,8 +130,8 @@ export default function FeedWrite({ navigation, route }) {
         style={styles.titleInput}
       />
       <TextInput
-        onChangeText={setContent}
-        value={content}
+        onChangeText={setContents}
+        value={contents}
         placeholder="내용"
         style={styles.contentInput}
       />
