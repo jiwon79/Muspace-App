@@ -12,14 +12,7 @@ export default function FeedWrite({ navigation, route }) {
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-
-  const requestPermisison = async () => {
-    const responseCamera = await Permissions.askAsync(Permissions.CAMERA);
-    console.log(responseCamera);
-    const responseMedia_library = await Permissions.askAsync(Permissions.MEDIA_LIBRARY);
-    console.log(responseMedia_library);
-
-  };
+  const [warning, setWarning] = useState('');
 
   useEffect(() => {
     (async () => {
@@ -33,6 +26,11 @@ export default function FeedWrite({ navigation, route }) {
     })();
   }, []);
 
+  const requestPermisison = async () => {
+    const responseCamera = await Permissions.askAsync(Permissions.CAMERA);
+    const responseMedia_library = await Permissions.askAsync(Permissions.MEDIA_LIBRARY);
+  };
+
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -43,8 +41,29 @@ export default function FeedWrite({ navigation, route }) {
 
     if (!result.cancelled) {
       setImage(result.uri);
+      console.log(result.uri)
     }
   };
+
+  const submitContent = () => {
+    if (title == '') {
+      setWarning('제목을 입력해주세요!');
+      return null;
+    }
+    if (content == '')  {
+      setWarning('내용을 입력해주세요!');
+      return null;
+    }
+    if (image == null)  {
+      setWarning('이미지를 넣어주세요');
+      return null;
+    }
+    setWarning('');
+
+    console.log(title)
+    console.log(content)
+    console.log(image)
+  }
 
   return (
     <View>
@@ -65,7 +84,7 @@ export default function FeedWrite({ navigation, route }) {
           <FontAwesome name="plus" style={styles.imageButtonIcon} />
         </TouchableOpacity>
       }
-
+      <Text style={styles.warningText}>{warning}</Text>
       <TextInput
         onChangeText={setTitle}
         value={title}
@@ -81,15 +100,13 @@ export default function FeedWrite({ navigation, route }) {
       />
       <ButtonModule
         text="Submit"
+        onPress={() => submitContent()}
       />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center'
-  },
   image: {
     width: 200,
     height: 200,
@@ -107,6 +124,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 24,
     color: '#000'
+  },
+  warningText: {
+    fontSize: 15,
+    color: 'red',
+    marginTop: 10,
+    marginLeft: '8%',
+    marginRight: '8%',
   },
   text: {
     textAlign: 'center'
