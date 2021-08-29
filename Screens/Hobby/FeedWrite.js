@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from 'react'
-import { View, Text, Button, Image, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
+import React, { useState, useEffect, version } from 'react'
+import { View, Text, Button, Image, TextInput, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native'
 import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
 import { FontAwesome } from '@expo/vector-icons'; 
+import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
 
 import HobbyContentWriteHeader from '../../components/Header/HobbyContentWriteHeader';
 import ButtonModule from '../../components/atom/ButtonModule';
 import { Platform } from 'react-native';
 
 export default function FeedWrite({ navigation, route }) {
-  console.log(Platform.OS);
   const hobby = route.params.hobby;
   const APIURL = 'http://1e14-121-152-26-223.ngrok.io/'
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState('');
   const [contents, setContents] = useState('');
   const [warning, setWarning] = useState('');
+  const [loadingAnim, setLoadingAnim] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -45,7 +46,6 @@ export default function FeedWrite({ navigation, route }) {
     if (!result.cancelled) {
       setImage(result);
       console.log(result)
-      setWarning(result.uri);
     }
   };
 
@@ -63,15 +63,12 @@ export default function FeedWrite({ navigation, route }) {
       return null;
     }
     setWarning('');
+    setLoadingAnim(true);
     
-    // ImagePicker saves the taken photo to disk and returns a local URI to it
     let localUri = Platform.OS === 'android' ? image.uri : image.uri.replace('file://', '')
     let filename = localUri.split('/').pop();
-    let imageType = image.type
 
-    // Upload the image using the fetch and FormData APIs
     let formData = new FormData();
-    // Assume "photo" is the name of the form field the server expects
     formData.append('file', { uri: localUri, name: filename, type: 'image/jpeg' });
     formData.append('category',hobby)
     formData.append('title', title)
@@ -88,18 +85,14 @@ export default function FeedWrite({ navigation, route }) {
     })
     .then(function (response) {
       console.log(JSON.stringify(response));
-      setWarning(JSON.stringify(response));
+      setLoadingAnim(false);
       console.log('전송 완료')
+      navigation.goBack();
     }).catch(function (error) {
       console.log(error);
-      setWarning('네트워크 오류로 전송이 안되었습니다.')
-    }).then(function() {
-        console.log('end post')
-    });
-
-    // console.log(title)
-    // console.log(contents)
-    // console.log(image)
+      setLoadingAnim(false);
+      setWarning('네트워크 오류로 전송을 하지 못했습니다.')
+    })
   }
 
   return (
@@ -138,6 +131,14 @@ export default function FeedWrite({ navigation, route }) {
       <ButtonModule
         text="Submit"
         onPress={() => submitContent()}
+      />
+      {loadingAnim ? <View style={styles.loadingBack}></View> : <View></View>}
+      
+      <ActivityIndicator 
+        size="large" 
+        animating={loadingAnim} 
+        color="#1D79D3"
+        style={styles.loadingAnim}
       />
     </View>
   )
@@ -185,5 +186,17 @@ const styles = StyleSheet.create({
     marginRight: '8%',
     marginBottom: 30,
     fontSize: 20,
+  },
+  loadingAnim: {
+    position: 'absolute',
+    alignSelf: 'center',
+    top: vh(50)
+  },
+  loadingBack: {
+    position: 'absolute',
+    backgroundColor: '#000000',
+    opacity: 0.3,
+    width: '100%',
+    height: vh(100)
   }
 })

@@ -7,7 +7,7 @@ import Planet from '../../components/Planet';
 import Hobby from '../../components/Hobby';
 import OurSpace from '../OurSpace';
 
-const hobbyList = ['취미', '운동', '음악', '글귀', '여행', '책'];
+const hobbyList = ['음식', '운동', '음악', '글귀', '여행', '책'];
 
 export default function InPlanet({ navigation }) {
   const ScaleAnim = useRef(new Animated.Value(1)).current;
@@ -77,7 +77,7 @@ export default function InPlanet({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   hobbyComponents: {
     position: 'absolute',
