@@ -11,7 +11,8 @@ import { Platform } from 'react-native';
 
 export default function FeedWrite({ navigation, route }) {
   const hobby = route.params.hobby;
-  const APIURL = 'http://1e14-121-152-26-223.ngrok.io/'
+  const APIURL = 'http://1e14-121-152-26-223.ngrok.io/';
+
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState('');
   const [contents, setContents] = useState('');
@@ -75,7 +76,7 @@ export default function FeedWrite({ navigation, route }) {
     formData.append('contents', contents)
     console.log(formData)
     
-    fetch('http://1e14-121-152-26-223.ngrok.io/post', {
+    fetch(APIURL+'post', {
       body: formData,
       method: 'POST',
       headers: {

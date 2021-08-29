@@ -1,17 +1,54 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import PagerView from 'react-native-pager-view';
 import { AntDesign } from '@expo/vector-icons'; 
+import axios from "axios";
 
 import HobbyFeedHeader from '../../components/Header/HobbyFeedHeader';
 import HobbyContent from '../../components/HobbyContent';
 
 export default function Feed({ navigation, route }) {
   const hobby = route.params.hobby;
+  const APIURL = 'http://1e14-121-152-26-223.ngrok.io/';
+
   const [activeIndex, setActiveIndex] = useState(0);
+  const [feedList, setFeedList] = useState(null);
   const pager = useRef(0);
   // api 받을 때 갯수 세서 넣어줘야됨
-  const feedNum = 3;
+  const [feedNum, setFeedNum] = useState(0);
+  const [feedComponents, setFeedComponents] = useState(null);
+  const url = APIURL+'get_post?category='+hobby;
+
+  useEffect(() => {
+    const fetchFeedData = async () => {
+      await axios.get(url)
+      .then(function (response) {
+        setFeedList(response.data)
+      })
+      .catch(function (error) {
+        console.log(error);
+        console.log("error");
+      });
+    }
+    fetchFeedData();
+  }, []);
+
+  useEffect(() => {
+    if (feedList != null) {
+      setFeedNum(feedList.length);
+      const components = feedList.map((feed, index) =>(
+        <View key={index+1}>
+          <HobbyContent
+            title={feed.title}
+            content={feed.contents}
+          />
+        </View>
+      ));
+      setFeedComponents(components);
+      pager.current.setPage(activeIndex)
+    }
+  }, [feedList, feedNum])
+
 
   return (
     <View style={styles.container}>
@@ -28,7 +65,6 @@ export default function Feed({ navigation, route }) {
         >
           <AntDesign name="left" color="black" style={styles.arrowIcon}/>
         </TouchableOpacity>
-
         <PagerView
           ref={pager}
           onPageSelected={({ nativeEvent }) => setActiveIndex(nativeEvent.position)}
@@ -36,27 +72,7 @@ export default function Feed({ navigation, route }) {
           initialPage={0}
           showPageIndicator={true}
         >
-          <View key="1">
-            <HobbyContent
-              imageURL='https://reactjs.org/logo-og.png'
-              title='제목1'
-              content='내용1'
-            />
-          </View>
-          <View key="2">
-            <HobbyContent
-              imageURL='https://reactjs.org/logo-og.png'
-              title='제목2'
-              content='내용2'
-            />
-          </View>
-          <View key="3">
-            <HobbyContent
-              imageURL='https://reactjs.org/logo-og.png'
-              title='제목3'
-              content='내용3'
-            />
-          </View>
+          {feedComponents}
         </PagerView>
 
         <TouchableOpacity
