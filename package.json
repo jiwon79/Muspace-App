@@ -41,5 +41,18 @@
     "@types/react-test-renderer": "^17.0.1",
     "typescript": "^4.3.5"
   },
+  "expo": {
+    "name": "MuSpace App",
+    "version": "0.1.0",
+    "slug": "MuSpace-slug",
+    "ios": {
+      "bundleIdentifier": "com.0corporatoin.MuSpace",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.0corporatoin.MuSpace",
+      "versionCode": 1
+    }
+  },
   "private": true
 }
