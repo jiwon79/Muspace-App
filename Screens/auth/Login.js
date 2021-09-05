@@ -18,7 +18,6 @@ export default function Login({ route, navigation }) {
         secureTextEntry={true}
         style={styles.inputPassword}
       />
-      
       <ButtonModule
         text="login"
         onPress = {() => handleLogged()}

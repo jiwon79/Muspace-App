@@ -21,6 +21,7 @@ export default function LandingNav({ handleLogged }) {
         <Stack.Screen 
           name="Register" 
           component={RegisterScreen}
+          options={{ title: '회원가입' }}
         />
         <Stack.Screen 
           name="Login" 
