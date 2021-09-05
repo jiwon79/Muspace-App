@@ -16,9 +16,7 @@ export default function LandingNav({ handleLogged }) {
         <Stack.Screen 
           name="Landing" 
           component={LandingScreen}
-          option={{
-            headerShown: false
-          }}  
+          options={{headerShown: false}}
         />
         <Stack.Screen 
           name="Register" 
