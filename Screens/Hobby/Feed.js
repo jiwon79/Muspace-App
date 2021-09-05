@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import PagerView from 'react-native-pager-view';
 import { AntDesign } from '@expo/vector-icons'; 
 import axios from "axios";
+import { Buffer } from "buffer"
 import Base64ArrayBuffer from 'base64-arraybuffer';
 import Base64 from 'Base64'
 
@@ -14,29 +15,10 @@ export default function Feed({ navigation, route }) {
   const APIURL = 'http://1e14-121-152-26-223.ngrok.io/';
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [feedList, setFeedList] = useState(null);
+  const [feedList, setFeedList] = useState([]);
   const pager = useRef(0);
-  // api 받을 때 갯수 세서 넣어줘야됨
   const [feedNum, setFeedNum] = useState(0);
   const [feedComponents, setFeedComponents] = useState(null);
-
-
-  const imageFetchData = async (id) => {
-    return axios.get(APIURL+'get_image?post_id='+id, {
-      responseType: 'arraybuffer'
-    })
-    .then(response => {
-      const base64 = Base64.btoa(
-        new Uint8Array(response.data).reduce(
-          (data, byte) => data + String.fromCharCode(byte),
-          '',
-        ),
-      );
-      console.log(base64)
-      return ("data:image/png;base64," + base64);
-    });
-    // return imageResponse
-  }
 
   const fetchFeedData = async () => {
     const feedFetchData = await axios.get(APIURL+'get_post?category='+hobby)
@@ -47,34 +29,22 @@ export default function Feed({ navigation, route }) {
       console.log(error);
       console.log("error");
     });
+    console.log(feedFetchData);
+    setFeedList(feedFetchData);
 
-
-    console.log('start')
-    console.log(feedFetchData)
-    const feedModifyData = feedFetchData.map((feed) => {
-      const imageURI = axios.get(APIURL+'get_image?post_id='+feed.id, {
+    for (var i=0; i<feedFetchData.length; i++) {
+      const postId = feedFetchData[i].id;
+      const imageResponse = await axios.get(APIURL+'get_image?post_id='+postId, {
         responseType: 'arraybuffer'
-      })
-      .then(response => {
-        const base64 = Base64.btoa(
-          new Uint8Array(response.data).reduce(
-            (data, byte) => data + String.fromCharCode(byte),'',
-          ),
-        );
-        return ("data:image/png;base64," + base64);
       });
-      console.log(imageURI);
-      // console.log('image uri')
-      // console.log(imageURI._W)
-      return ({
-        ...feed,
-        imageURL: 'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg'
-        // imageURL: imageURI
-      })
-    })
-    console.log('end')
-    console.log(feedModifyData)
-    setFeedList(feedModifyData)
+      const imageData = await Buffer.from(imageResponse.data, 'binary').toString('base64');
+      const imageURI = await 'data:image/png;base64,' + imageData;
+      console.log(postId);
+      setFeedList(feedList => [
+        ...feedList,
+        feedList[i].imageURL = imageURI
+      ]);
+    }
   }
 
   useEffect(() => {
@@ -85,7 +55,6 @@ export default function Feed({ navigation, route }) {
     if (feedList != null) {
       setFeedNum(feedList.length);
       const components = feedList.map((feed, index) =>{
-        console.log(feed)
         return (
           <View key={index+1}>
             <HobbyContent
