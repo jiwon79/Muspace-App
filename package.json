@@ -1,7 +1,8 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
+    "start": "yarn run rndebugger && expo start",
+    "rndebugger": "rndebugger-open --revert && rndebugger-open --open --expo",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
@@ -25,6 +26,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native-debugger-open": "^0.3.25",
     "react-native-expo-viewport-units": "^0.0.8",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-image-picker": "^4.0.6",
@@ -33,6 +35,8 @@
     "react-native-textinput-effects": "^0.6.2",
     "react-native-viewport-units": "^0.0.5",
     "react-native-web": "~0.13.12",
+    "react-redux": "^7.2.5",
+    "redux": "^4.1.1",
     "yarn": "^1.22.11"
   },
   "devDependencies": {

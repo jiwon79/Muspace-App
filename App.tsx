@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, SafeAreaView, StatusBar, Button } from 'react-native';
 import Constants from 'expo-constants';
+import { createStore } from 'redux';
+import { Provider } from "react-redux";
 
 import LandingNav from './Navigations/LandingNav';
 import MainBottomNav from './Navigations/MainBottomNav';
