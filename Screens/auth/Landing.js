@@ -1,9 +1,20 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Button } from 'react-native'
+import { useSelector, useDispatch } from 'react-redux';
 
 import ButtonModule from '../../components/atom/ButtonModule'
+import { increase, decrease, setDiff } from '../../modules/counter';
 
 export default function Landing({ navigation }) {
+  const { number, diff } = useSelector(state => ({
+    number: state.counter.number,
+    diff: state.counter.diff
+  }));
+  const dispatch = useDispatch();
+  const onIncrease = () => dispatch(increase());
+  const onDecrease = () => dispatch(decrease());
+  const onSetDiff = diff => dispatch(setDiff(diff));
+
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>MuSpace 로고</Text>
@@ -17,6 +28,11 @@ export default function Landing({ navigation }) {
         text="아니요"
         onPress={() => navigation.navigate("Login")}
         style={styles.loginButton}
+      />
+
+      <Button 
+        title="title"
+        onPress={onIncrease}
       />
     </View>
   )
