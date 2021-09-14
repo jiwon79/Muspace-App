@@ -38,6 +38,7 @@
     "react-redux": "^7.2.5",
     "redux": "^4.1.1",
     "redux-devtools-extension": "^2.13.9",
+    "typesafe-actions": "^5.1.0",
     "yarn": "^1.22.11"
   },
   "devDependencies": {

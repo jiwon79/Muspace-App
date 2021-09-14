@@ -9,7 +9,7 @@ import LoginScreen from './../Screens/auth/Login';
 
 const Stack = createStackNavigator();
 
-export default function LandingNav({ handleLogged }) {
+export default function LandingNav() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Landing">
@@ -26,7 +26,6 @@ export default function LandingNav({ handleLogged }) {
         <Stack.Screen 
           name="Login" 
           component={LoginScreen}
-          initialParams={{handleLogged}}
         />
       </Stack.Navigator>
     </NavigationContainer>

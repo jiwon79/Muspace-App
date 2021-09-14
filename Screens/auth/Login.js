@@ -1,10 +1,16 @@
 import React from 'react'
 import { View, Text, Button, TextInput, StyleSheet } from 'react-native'
+import { useSelector, useDispatch } from 'react-redux';
 
 import ButtonModule from '../../components/atom/ButtonModule';
+import { login, logout } from '../../modules/login';
 
 export default function Login({ route, navigation }) {
-  const { handleLogged, otherParam } = route.params;
+  const { logged } = useSelector(state => ({
+    logged: state.login.logged
+  }));
+  const dispatch = useDispatch();
+  const onLogin = () => dispatch(login());
 
   return (
     <View>
@@ -20,7 +26,7 @@ export default function Login({ route, navigation }) {
       />
       <ButtonModule
         text="login"
-        onPress = {() => handleLogged()}
+        onPress = {() => onLogin()}
       />
     </View>
   )
