@@ -5,7 +5,9 @@ import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
 export default function MusicThum({ navigation }) {
   return (
     <View style={styles.container}>
-      <ImageBackground source={require("../assets/snoo.jpg")} style={styles.bgImage}/>
+      <View style={styles.imageContainer}>
+        <ImageBackground source={{uri: 'https://img.youtube.com/vi/FYBhzfSBtcE/0.jpg'}} style={styles.bgImage}/>
+      </View>
       <TouchableOpacity
         activeOpacity={0.8}
         onPress={() => navigation.navigate('InPlanet')}
@@ -20,18 +22,22 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: vh(50),
     left: vw(50),
-    height: vw(70),
     width: vw(70),
+    height: vw(70),
     transform: [
       { translateY: vw(-35) },
       { translateX: vw(-35) }
     ]
   },
-  bgImage: {
-    width: '100%', 
+  imageContainer: {
+    width: '100%',
     height: '100%',
     borderRadius: vw(45),
     overflow: 'hidden'
+  },
+  bgImage: {
+    width: '100%',
+    height: '100%'
   },
   button: {
     position: 'absolute',
