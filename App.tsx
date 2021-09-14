@@ -4,10 +4,9 @@ import Constants from 'expo-constants';
 import { createStore } from 'redux';
 import { Provider, useSelector, useDispatch } from "react-redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
-import {RootState} from 'typesafe-actions';
+import { RootState } from 'typesafe-actions';
 
 import rootReducer from './modules';
-import { login, logout } from './modules/login';
 import LandingNav from './Navigations/LandingNav';
 import MainBottomNav from './Navigations/MainBottomNav';
 
