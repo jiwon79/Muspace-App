@@ -6,7 +6,7 @@ export default function MusicThum({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <ImageBackground source={{uri: 'https://img.youtube.com/vi/FYBhzfSBtcE/0.jpg'}} style={styles.bgImage}/>
+        <ImageBackground source={{uri: 'https://img.youtube.com/vi/cHkDZ1ekB9U/0.jpg'}} style={styles.bgImage}/>
       </View>
       <TouchableOpacity
         activeOpacity={0.8}
