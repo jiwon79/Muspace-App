@@ -5,7 +5,7 @@ import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
 import Header from '../../components/Header/Header';
 import Planet from '../../components/Planet';
 import Hobby from '../../components/Hobby';
-import OurSpace from '../OurSpace';
+import InPlanetIcons from '../../components/InPlanetIcons';
 
 const hobbyList = ['음식', '운동', '음악', '글귀', '여행', '책'];
 
@@ -56,6 +56,12 @@ export default function InPlanet({ navigation }) {
     <View style={styles.container}>
       <Header/>
       <Animated.View
+        style={{opacity: FadeInAnim}}
+      >
+        <InPlanetIcons/>
+      </Animated.View>
+
+      <Animated.View
         style={{
           transform: [
             { scale: ScaleAnim },
@@ -71,6 +77,7 @@ export default function InPlanet({ navigation }) {
       >
         {hobbyComponents}
       </Animated.View>
+
     </View>
   )
 }
