@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <View style={styles.container}>
       <Ionicons name='musical-note' style={styles.icon}/>
-      <Text style={styles.text}>myspace header</Text>
+      <Text style={styles.text}>이름</Text>
       <Feather name='more-vertical' style={styles.icon}/>
     </View>
   )
