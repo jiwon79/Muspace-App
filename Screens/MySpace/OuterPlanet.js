@@ -5,11 +5,13 @@ import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
 import Header from '../../components/Header/Header';
 import Planet from './../../components/Planet';
 import MusicThum from '../../components/MusicThum';
+import Introduce from '../../components/Introduce';
 
 export default function OuterPlanet({ navigation }) {
   return (
     <View>
       <Header/>
+      <Introduce/>
       <Planet/>
       <MusicThum navigation={navigation}/>
     </View>
