@@ -26,7 +26,7 @@ export default function AppWrapper() {
 
 export function App() {
   const { onlogged } = useSelector((state: RootState) => ({
-    onlogged: state.login.logged
+    onlogged: state.userInfo.logged
   }));
   console.log(onlogged);
 

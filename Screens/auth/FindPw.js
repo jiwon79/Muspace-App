@@ -34,7 +34,7 @@ export default function FindPw() {
         borderColor={'#b76c94'}
         borderHeight={3}
         inputPadding={16}
-        onChangeText={setName}
+        onChangeText={setEmail}
         style={styles.textInput}
       />
 

@@ -3,7 +3,6 @@ import { View, Text, Button, TextInput, StyleSheet, Alert, Modal, TouchableHighl
 import { useSelector, useDispatch } from 'react-redux';
 
 import ButtonModule from '../../components/atom/ButtonModule';
-import { login } from '../../modules/login';
 
 export default function Login({ route, navigation }) {
   const [userId, setUserId] = useState('');

@@ -1,5 +1,5 @@
-const LOGIN = 'login/LOGIN';
-const LOGOUT = 'login/LOGOUT';
+const LOGIN = 'userInfo/LOGIN';
+const LOGOUT = 'userInfo/LOGOUT';
 
 export const login = () => ({ type: LOGIN });
 export const logout = () => ({ type: LOGOUT });
@@ -8,7 +8,7 @@ const initialState = {
   logged: false
 }
 
-export default function todos(state = initialState, action) {
+export default function userInfo(state = initialState, action) {
   switch (action.type) {
     case LOGIN:
       return {...state, logged: true}
