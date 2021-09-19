@@ -5,7 +5,7 @@ export const login = () => ({ type: LOGIN });
 export const logout = () => ({ type: LOGOUT });
 
 const initialState = {
-  logged: true
+  logged: false
 }
 
 export default function todos(state = initialState, action) {

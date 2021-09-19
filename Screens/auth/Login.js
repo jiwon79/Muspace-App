@@ -66,6 +66,16 @@ export default function Login({ route, navigation }) {
         text="login"
         onPress = {() => loginAction()}
       />
+
+      <ButtonModule
+        text="아이디 찾기"
+        onPress={() => navigation.navigate("FindId")}
+      />
+      
+      <ButtonModule
+        text="비밀번호 찾기"
+        onPress={() => navigation.navigate("FindPw")}
+      />
     </View>
   )
 }
