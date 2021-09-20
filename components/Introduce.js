@@ -1,11 +1,13 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TextInput } from 'react-native'
 
-export default function Introduce() {
+export default function Introduce({ intro }) {
   return (
     <View style={styles.container}>
       <View style={styles.arrow}>
-        <Text style={styles.desc}>소개글</Text>
+        <Text style={styles.desc}>
+          {intro}
+        </Text>
       </View>
       <View style={styles.after}></View>
     </View>

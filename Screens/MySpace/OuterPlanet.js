@@ -12,7 +12,9 @@ export default function OuterPlanet({ navigation }) {
   return (
     <View>
       <Header/>
-      <Introduce/>
+      <Introduce
+        intro={'소개글'}
+      />
       <Planet/>
       <MusicThum navigation={navigation}/>
       <MusicDesc/>
