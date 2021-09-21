@@ -4,8 +4,8 @@ import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-naviga
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import MySpaceNav from './MySpaceNav';
+import SpaceJourneyNav from './SpaceJourneyNav';
 import OurSpace from './../Screens/OurSpace';
-import SpaceJourney from './../Screens/SpaceJourney';
 
 const Tab = createBottomTabNavigator();
 
@@ -26,8 +26,8 @@ export default function MainBottomNav() {
         }}
       >
         <Tab.Screen 
-          name="SpaceJourney" 
-          component={SpaceJourney}
+          name="SpaceJourney"
+          component={SpaceJourneyNav}
         />
         <Tab.Screen 
           name="MySpace" 
