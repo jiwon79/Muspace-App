@@ -12,10 +12,16 @@ export default function SpaceJourneyNav() {
   return (
     <Stack.Navigator 
       initialRouteName="selectGalaxy"
+      screenOptions={{
+        animationEnabled: false
+      }}
     >
       <Stack.Screen 
         name="selectGalaxy" 
         component={SelectGalaxy}
+        options={{
+          headerShown: false
+        }}
       />
       <Stack.Screen 
         name="JourneyGalaxy"
