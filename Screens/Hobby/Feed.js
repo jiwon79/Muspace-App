@@ -8,7 +8,7 @@ import Base64ArrayBuffer from 'base64-arraybuffer';
 import Base64 from 'Base64'
 
 import HobbyFeedHeader from '../../components/Header/HobbyFeedHeader';
-import HobbyContent from '../../components/HobbyContent';
+import HobbyContent from '../../components/MySpace/HobbyContent';
 
 export default function Feed({ navigation, route }) {
   const hobby = route.params.hobby;

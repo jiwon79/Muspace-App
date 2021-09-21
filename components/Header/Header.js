@@ -1,14 +1,19 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 
-export default function Header() {
+export default function Header({ navigation }) {
   return (
     <View style={styles.container}>
       <Ionicons name='musical-note' style={styles.icon}/>
       <Text style={styles.text}>이름</Text>
-      <Feather name='more-vertical' style={styles.icon}/>
+      <TouchableOpacity>
+        <Feather 
+          name='more-vertical' 
+          style={styles.icon}
+        />
+      </TouchableOpacity>
     </View>
   )
 }

@@ -5,7 +5,7 @@ export const login = () => ({ type: LOGIN });
 export const logout = () => ({ type: LOGOUT });
 
 const initialState = {
-  logged: false
+  logged: true
 }
 
 export default function userInfo(state = initialState, action) {

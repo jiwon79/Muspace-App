@@ -1,12 +1,11 @@
 import React from 'react'
 import { View, Text, Button } from 'react-native'
-import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
 
 import Header from '../../components/Header/Header';
-import Planet from './../../components/Planet';
-import MusicThum from '../../components/MusicThum';
-import Introduce from '../../components/Introduce';
-import MusicDesc from '../../components/MusicDesc';
+import Planet from '../../components/MySpace/Planet';
+import MusicThum from '../../components/MySpace/MusicThum';
+import Introduce from '../../components/MySpace/Introduce';
+import MusicDesc from '../../components/MySpace/MusicDesc';
 
 export default function OuterPlanet({ navigation }) {
   return (

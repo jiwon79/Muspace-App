@@ -3,9 +3,9 @@ import { View, Text, Button, FlatList, Animated, StyleSheet } from 'react-native
 import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
 
 import Header from '../../components/Header/Header';
-import Planet from '../../components/Planet';
-import Hobby from '../../components/Hobby';
-import InPlanetIcons from '../../components/InPlanetIcons';
+import Planet from '../../components/MySpace/Planet';
+import Hobby from '../../components/MySpace/Hobby';
+import InPlanetIcons from '../../components/MySpace/InPlanetIcons';
 
 const hobbyList = ['음식', '운동', '음악', '글귀', '여행', '책'];
 

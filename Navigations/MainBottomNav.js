@@ -25,18 +25,16 @@ export default function MainBottomNav() {
           headerShown: false
         }}
       >
-        <Tab.Screen name="OurSapce" component={OurSpace}/>
+        <Tab.Screen 
+          name="SpaceJourney" 
+          component={SpaceJourney}
+        />
         <Tab.Screen 
           name="MySpace" 
           component={MySpaceNav}
           options={({ route }) => ({
             tabBarStyle: getTabBarVisible(route)
           })}
-
-        />
-        <Tab.Screen 
-          name="SpaceJourney" 
-          component={SpaceJourney}
         />
       </Tab.Navigator>
     </NavigationContainer>
