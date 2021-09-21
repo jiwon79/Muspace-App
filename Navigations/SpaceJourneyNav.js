@@ -13,6 +13,7 @@ export default function SpaceJourneyNav() {
     <Stack.Navigator 
       initialRouteName="selectGalaxy"
       screenOptions={{
+        headerShown: false,
         animationEnabled: false
       }}
     >
