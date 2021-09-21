@@ -1,14 +1,22 @@
 import React from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { AntDesign } from '@expo/vector-icons';
 
-export default function MusicGenreItem({ genre }) {
+export default function MusicGenreItem({ genre, navigation }) {
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.itemHeader}>
         <Text style={styles.title}>{genre}</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('JourneyGalaxy', {genre})}>
+          <AntDesign name="right" style={styles.navigationIcon}/>
+        </TouchableOpacity>
       </View>
+
       <View style={styles.content}>
-        <Text>dd</Text>
+        <View style={styles.album}><Text>.</Text></View>
+        <View style={styles.album}><Text>.</Text></View>
+        <View style={styles.album}><Text>.</Text></View>
+        <View style={styles.album}><Text>.</Text></View>
       </View>
     </View>
   )
@@ -20,12 +28,27 @@ const styles = StyleSheet.create({
     height: 100,
     margin: '5%',
     borderWidth: 1,
-    
+  },
+  itemHeader: {
+    flexDirection: 'row',
+    borderBottomWidth: 1
   },
   title: {
-    fontSize: 20
+    fontSize: 20,
+  },
+  navigationIcon: {
+    color: 'black',
+    fontSize: 20,
+    alignSelf: 'center'
   },
   content: {
-    flex: 1
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
+  album: {
+    width: '50%',
+    height: '50%',
+    borderWidth: 1
   }
 })

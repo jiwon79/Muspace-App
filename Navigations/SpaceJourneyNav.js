@@ -8,7 +8,7 @@ import JourneyGalaxy from '../Screens/SpaceJourney/JourneyGalaxy';
 
 const Stack = createStackNavigator();
 
-export default function SpaceJourneyNav() {
+export default function SpaceJourneyNav({ navagation, route }) {
   return (
     <Stack.Navigator 
       initialRouteName="selectGalaxy"

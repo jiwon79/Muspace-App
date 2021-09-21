@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
-export default function JourneyGalaxyHeader({ navigation }) {
+export default function JourneyGalaxyHeader({ navigation, genre }) {
   return (
     <View style={styles.container}>
       <AntDesign 
@@ -12,7 +12,7 @@ export default function JourneyGalaxyHeader({ navigation }) {
         color="black" 
         onPress={() => navigation.goBack()}
       />
-      <Text>header</Text>
+      <Text>{genre}</Text>
       <FontAwesome name="battery-full" size={24} color="black" />
     </View>
   )
