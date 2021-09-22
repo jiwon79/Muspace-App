@@ -3,7 +3,13 @@ import { View, Text, StyleSheet } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
-export default function JourneyGalaxyHeader({ navigation, genre }) {
+type JourneyGalaxyHeaderProps = {
+  navigation: any,
+  genre: string
+}
+
+export default function JourneyGalaxyHeader({ navigation, genre }: JourneyGalaxyHeaderProps) {
+  console.log(typeof(genre));
   return (
     <View style={styles.container}>
       <AntDesign 
