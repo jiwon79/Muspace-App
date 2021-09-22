@@ -1,5 +1,4 @@
 import React from 'react'
-import { View, Text } from 'react-native'
 import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -8,10 +7,9 @@ import SpaceJourneyNav from './SpaceJourneyNav';
 import OurSpace from './../Screens/OurSpace';
 
 const Tab = createBottomTabNavigator();
-
 const getTabBarVisible = (route) => {
-  const routeName = getFocusedRouteNameFromRoute(route)
-  if (routeName == 'HobbyFeed') {
+  const routeName = getFocusedRouteNameFromRoute(route);
+  if (routeName == 'HobbyFeed' || routeName == 'JourneyGalaxy') {
     return { display: 'none' }
   }
 }
@@ -28,6 +26,9 @@ export default function MainBottomNav() {
         <Tab.Screen 
           name="SpaceJourney"
           component={SpaceJourneyNav}
+          options={({ route }) => ({
+            tabBarStyle: getTabBarVisible(route)
+          })}
         />
         <Tab.Screen 
           name="MySpace" 
