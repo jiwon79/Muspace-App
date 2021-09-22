@@ -6,6 +6,7 @@ import Header from '../../components/Header/Header';
 import Planet from '../../components/MySpace/Planet';
 import Hobby from '../../components/MySpace/Hobby';
 import InPlanetIcons from '../../components/MySpace/InPlanetIcons';
+import BottomMusicBar from '../../components/Music/BottomMusicBar';
 
 const hobbyList = ['음식', '운동', '음악', '글귀', '여행', '책'];
 
@@ -78,6 +79,11 @@ export default function InPlanet({ navigation }) {
         {hobbyComponents}
       </Animated.View>
 
+      <Animated.View 
+        style={[styles.bottomMusicBar, { opacity: FadeInAnim }]}
+      >
+        <BottomMusicBar/>
+      </Animated.View>
     </View>
   )
 }
@@ -96,5 +102,9 @@ const styles = StyleSheet.create({
     paddingLeft: '10%',
     paddingRight: '10%',
     flexWrap: 'wrap'
+  },
+  bottomMusicBar: {
+    position: 'absolute',
+    bottom: 0
   }
 })

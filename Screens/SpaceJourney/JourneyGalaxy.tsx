@@ -4,6 +4,7 @@ import { View, Text, FlatList, StyleSheet } from 'react-native'
 import { JourneyGalaxyStackProp } from '../../utils/types'
 import JourneyGalaxyHeader from '../../components/Header/JourneyGalaxyHeader'
 import MusicPlanet from '../../components/SpaceJourney/MusicPlanet'
+import BottomMusicBar from '../../components/Music/BottomMusicBar'
 
 export default function JourneyGalaxy({ route, navigation }: JourneyGalaxyStackProp) {
   const genre:string = route.params.genre;
@@ -19,7 +20,7 @@ export default function JourneyGalaxy({ route, navigation }: JourneyGalaxyStackP
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <JourneyGalaxyHeader navigation={navigation} genre={genre}/>
       <FlatList
         style={styles.flastList}
@@ -39,12 +40,15 @@ export default function JourneyGalaxy({ route, navigation }: JourneyGalaxyStackP
           />
         }
       />
+      <BottomMusicBar />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   flastList: {
-    marginBottom: 70
   }
 })
