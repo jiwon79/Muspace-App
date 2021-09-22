@@ -9,7 +9,6 @@ type JourneyGalaxyHeaderProps = {
 }
 
 export default function JourneyGalaxyHeader({ navigation, genre }: JourneyGalaxyHeaderProps) {
-  console.log(typeof(genre));
   return (
     <View style={styles.container}>
       <AntDesign 
