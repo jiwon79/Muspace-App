@@ -9,6 +9,15 @@ export default function JourneyGalaxy({ route, navigation }: JourneyGalaxyStackP
   const genre:string = route.params.genre;
   const musicTitleList = Array('음악1', '음악2', '음악3', '음악4', '음악5', '음악6', '음악7', '음악8', '음악9', '음악10', '음악11', '음악12', '음악13', '음악14', '음악15', '음악16', '음악17', '음악18')
   
+  const randomNum = (index: number) => {
+    let num = Math.floor(Math.random() * 40);
+    if (index%2 == 1) {
+      return 60-num;
+    } else {
+      return num-60;
+    }
+  }
+
   return (
     <View>
       <JourneyGalaxyHeader navigation={navigation} genre={genre}/>
@@ -18,8 +27,16 @@ export default function JourneyGalaxy({ route, navigation }: JourneyGalaxyStackP
         keyExtractor = {item => item}
         inverted={true}
         numColumns={2}
-        renderItem = {({item}) => 
-          <MusicPlanet title={item}/>
+        columnWrapperStyle={{
+          justifyContent: 'space-between'
+        }}
+        renderItem = {({item, index}) => 
+          <MusicPlanet 
+            title={item}
+            style={{
+              transform: [{ translateX: randomNum(index) }]
+            }}
+          />
         }
       />
     </View>
@@ -28,6 +45,6 @@ export default function JourneyGalaxy({ route, navigation }: JourneyGalaxyStackP
 
 const styles = StyleSheet.create({
   flastList: {
-    marginBottom: 20
+    marginBottom: 70
   }
 })

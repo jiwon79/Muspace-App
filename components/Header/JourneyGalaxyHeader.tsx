@@ -13,12 +13,11 @@ export default function JourneyGalaxyHeader({ navigation, genre }: JourneyGalaxy
     <View style={styles.container}>
       <AntDesign 
         name="arrowleft" 
-        size={24} 
-        color="black" 
+        style={styles.icon}
         onPress={() => navigation.goBack()}
       />
       <Text>{genre}</Text>
-      <FontAwesome name="battery-full" size={24} color="black" />
+      <FontAwesome name="battery-full" style={styles.icon} />
     </View>
   )
 }
@@ -26,6 +25,12 @@ export default function JourneyGalaxyHeader({ navigation, genre }: JourneyGalaxy
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    padding: 10,
+    backgroundColor: '#ddd'
+  },
+  icon: {
+    fontSize: 24,
+    color: "black"
   }
 })
