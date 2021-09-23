@@ -1,13 +1,11 @@
 import React from 'react'
 import { View, Text, StyleSheet, TextInput } from 'react-native'
 
-export default function Introduce({ intro }) {
+export default function Introduce(props) {
   return (
     <View style={styles.container}>
       <View style={styles.arrow}>
-        <Text style={styles.desc}>
-          {intro}
-        </Text>
+        {props.children}
       </View>
       <View style={styles.after}></View>
     </View>
@@ -38,9 +36,5 @@ const styles = StyleSheet.create({
     borderTopColor: '#88b7d5',
     borderWidth: 30,
     marginLeft: -30
-  },
-  desc: {
-    fontSize: 20,
-    textAlign: 'center',
   }
 })

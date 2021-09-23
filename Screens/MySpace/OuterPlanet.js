@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, StyleSheet } from 'react-native'
 
 import Header from '../../components/Header/Header';
 import Planet from '../../components/MySpace/Planet';
@@ -11,12 +11,19 @@ export default function OuterPlanet({ navigation }) {
   return (
     <View>
       <Header/>
-      <Introduce
-        intro={'소개글'}
-      />
+      <Introduce>
+        <Text style={styles.introDesc}>소개글</Text>
+      </Introduce>
       <Planet/>
       <MusicThum navigation={navigation}/>
       <MusicDesc/>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  introDesc: {
+    textAlign: 'center',
+    fontSize: 20
+  }
+})
