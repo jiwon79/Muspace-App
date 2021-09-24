@@ -6,12 +6,11 @@ import Planet from '../../components/MySpace/Planet';
 import MusicThum from '../../components/MySpace/MusicThum';
 import Introduce from '../../components/MySpace/Introduce';
 import MusicDesc from '../../components/MySpace/MusicDesc';
-import ButtonModule from '../../components/atom/ButtonModule';
 
 export default function OuterPlanet({ navigation }) {
   return (
     <View>
-      <Header/>
+      <Header navigation={navigation} />
       <Introduce>
         <Text style={styles.introDesc}>소개글</Text>
       </Introduce>

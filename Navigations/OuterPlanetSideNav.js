@@ -8,7 +8,12 @@ const Drawer = createDrawerNavigator();
 
 export default function OuterPlanetSideNav() {
   return (
-    <Drawer.Navigator initialRouteName="Home">
+    <Drawer.Navigator 
+      initialRouteName="Home"
+      screenOptions={{
+        headerShown: false
+      }}  
+    >
       <Drawer.Screen name="OuterPlanetMain" component={OuterPlanet} />
       <Drawer.Screen name="EditOuterPlanet" component={EditOuterPlanet} />
     </Drawer.Navigator>

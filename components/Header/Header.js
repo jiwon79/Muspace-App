@@ -8,7 +8,9 @@ export default function Header({ navigation }) {
     <View style={styles.container}>
       <Ionicons name='musical-note' style={styles.icon}/>
       <Text style={styles.text}>이름</Text>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.openDrawer()}
+      >
         <Feather 
           name='more-vertical' 
           style={styles.icon}
