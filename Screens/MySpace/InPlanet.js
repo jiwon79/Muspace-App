@@ -54,7 +54,7 @@ export default function InPlanet({ navigation }) {
   }, [ScaleAnim, TranslateAnim, FadeInAnim])
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} >
       <Header/>
       <Animated.View
         style={{opacity: FadeInAnim}}
