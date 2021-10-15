@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView, Dimensions } from 'react-native';
 import Constants from 'expo-constants';
 import { createStore } from 'redux';
 import { Provider, useSelector, useDispatch } from "react-redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { RootState } from 'typesafe-actions';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 import rootReducer from './modules';
 import LandingNav from './Navigations/LandingNav';
@@ -48,6 +49,10 @@ export function App() {
     </SafeAreaView>
   )
 }
+
+EStyleSheet.build({
+  $screenWidth: Dimensions.get('window').width
+})
 
 const styles = StyleSheet.create({
   container: {

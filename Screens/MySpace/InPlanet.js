@@ -32,7 +32,7 @@ export default function InPlanet({ navigation }) {
     const planetTranslate = Animated.timing(
       TranslateAnim,
       {
-        toValue: vh(-20),
+        toValue: vh(-15),
         duratoin: 1000,
         useNativeDriver: true
       }

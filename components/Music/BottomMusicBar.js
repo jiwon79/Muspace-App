@@ -1,22 +1,24 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
 
 export default function BottomMusicBar() {
   return (
     <View style={styles.container}>
-      <Text>bottom music bar</Text>
+      <Text style={styles.text}>bottom music bar</Text>
     </View>
   )
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
-    position: 'absolute',
     backgroundColor: '#eee',
-    width: vw(100),
+    width: '$screenWidth',
     height: 50,
-    bottom: 0,
-    zIndex: 10
+    zIndex: 10,
+  },
+  text: {
+    fontSize: 20
   }
 })
