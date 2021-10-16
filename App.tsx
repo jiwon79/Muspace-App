@@ -6,10 +6,12 @@ import { Provider, useSelector, useDispatch } from "react-redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { RootState } from 'typesafe-actions';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import * as Font from 'expo-font';
 
 import rootReducer from './modules';
 import LandingNav from './Navigations/LandingNav';
 import MainBottomNav from './Navigations/MainBottomNav';
+import { typography } from './utils/typography';
 
 export default function AppWrapper() {
   const store = createStore(
@@ -24,6 +26,12 @@ export default function AppWrapper() {
     </Provider>
   )
 }
+
+Font.loadAsync({
+  NotoSansKR: require('./assets/fonts/NotoSansKR.otf'),
+  'NotoSansKR-Bold': require('./assets/fonts/NotoSansKR-Bold.otf'),
+  'NotoSansKR-Light': require('./assets/fonts/NotoSansKR-Light.otf')
+})
 
 export function App() {
   const { onlogged } = useSelector((state: RootState) => ({
