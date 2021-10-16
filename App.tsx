@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, SafeAreaView, Dimensions } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
 import Constants from 'expo-constants';
 import { createStore } from 'redux';
 import { Provider, useSelector, useDispatch } from "react-redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { RootState } from 'typesafe-actions';
-import EStyleSheet from 'react-native-extended-stylesheet';
 import * as Font from 'expo-font';
 
 import rootReducer from './modules';
@@ -56,10 +55,6 @@ export function App() {
     </SafeAreaView>
   )
 }
-
-EStyleSheet.build({
-  $screenWidth: Dimensions.get('window').width
-})
 
 const styles = StyleSheet.create({
   container: {

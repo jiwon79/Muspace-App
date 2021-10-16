@@ -1,4 +1,27 @@
 import EStyleSheet from "react-native-extended-stylesheet";
+import { Dimensions } from 'react-native';
+
+EStyleSheet.build({
+  $screenWidth: Dimensions.get('window').width,
+  $primary_Main: '#170E30',
+  $primary_02: '#321E6A',
+  $primary_03: '#4C2BA9',
+  $primary_04: '#673BE7',
+  $primary_05: '#161A4B',
+  $sub: '#525C90',
+  $sub2: '#1E243D',
+
+  $white: '#ffffff',
+  $grayscale_01: '#F2F2F2',
+  $grayscale_02: '#E3E3E3',
+  $grayscale_03: '#CFCFCF',
+  $black: '#000000',
+
+  $secondary_Secondary: '#FC6F23',
+  $secondary_02: '#FF9155',
+  $secondary_03: '#FFB188',
+  $secondary_04: '#FFCFB6'
+})
 
 const styleGuide = EStyleSheet.create({
   display_01: {
