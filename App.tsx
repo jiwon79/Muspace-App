@@ -11,7 +11,6 @@ import * as Font from 'expo-font';
 import rootReducer from './modules';
 import LandingNav from './Navigations/LandingNav';
 import MainBottomNav from './Navigations/MainBottomNav';
-import { typography } from './utils/typography';
 
 export default function AppWrapper() {
   const store = createStore(
