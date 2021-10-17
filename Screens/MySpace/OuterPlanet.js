@@ -9,7 +9,7 @@ import MusicDesc from '../../components/MySpace/MusicDesc';
 
 export default function OuterPlanet({ navigation }) {
   return (
-    <View>
+    <View style={styles.container}>
       <Header navigation={navigation} />
       <Introduce>
         <Text style={styles.introDesc}>소개글</Text>

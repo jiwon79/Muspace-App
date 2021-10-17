@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { View, Text, Button, FlatList, Animated, StyleSheet } from 'react-native'
 import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 import Header from '../../components/Header/Header';
 import Planet from '../../components/MySpace/Planet';
@@ -88,7 +89,7 @@ export default function InPlanet({ navigation }) {
   )
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
     flex: 1,
   },

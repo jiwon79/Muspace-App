@@ -39,6 +39,7 @@
     "react-native-pager-view": "5.0.12",
     "react-native-reanimated": "^2.2.2",
     "react-native-screens": "^3.6.0",
+    "react-native-svg-transformer": "^0.14.3",
     "react-native-textinput-effects": "^0.6.2",
     "react-native-viewport-units": "^0.0.5",
     "react-native-web": "~0.13.12",

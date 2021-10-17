@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView, View, Text } from 'react-native';
 import Constants from 'expo-constants';
 import { createStore } from 'redux';
 import { Provider, useSelector, useDispatch } from "react-redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { RootState } from 'typesafe-actions';
-import * as Font from 'expo-font';
+import { useFonts } from 'expo-font'
 
 import rootReducer from './modules';
 import LandingNav from './Navigations/LandingNav';
@@ -25,34 +25,37 @@ export default function AppWrapper() {
   )
 }
 
-Font.loadAsync({
-  NotoSansKR: require('./assets/fonts/NotoSansKR.otf'),
-  'NotoSansKR-Bold': require('./assets/fonts/NotoSansKR-Bold.otf'),
-  'NotoSansKR-Light': require('./assets/fonts/NotoSansKR-Light.otf')
-})
-
 export function App() {
   const { onlogged } = useSelector((state: RootState) => ({
     onlogged: state.userInfo.logged
   }));
-  console.log(onlogged);
-
-  if (!onlogged) {
-    return (
+  
+  const [loaded] = useFonts({
+    NotoSansKR: require('./assets/fonts/NotoSansKR.otf'),
+    'NotoSansKR-Bold': require('./assets/fonts/NotoSansKR-Bold.otf'),
+    'NotoSansKR-Light': require('./assets/fonts/NotoSansKR-Light.otf')
+  })
+  
+  return (
+    <>
+    {loaded
+    ?
+      onlogged
+      ?
+      <SafeAreaView style={styles.container}>
+        <MainBottomNav/>
+      </SafeAreaView>
+      :
       <SafeAreaView style={styles.container}>
         <LandingNav/>
       </SafeAreaView>
-      );
-  }
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <MainBottomNav/>
-      {/* <Button
-        title="logout button"
-        onPress = {() => handleLogged()}
-      /> */}
-    </SafeAreaView>
+      
+    :
+      <SafeAreaView style={styles.container}>
+        <Text>before load</Text>
+      </SafeAreaView>
+    } 
+    </>
   )
 }
 
