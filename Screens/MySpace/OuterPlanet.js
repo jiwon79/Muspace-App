@@ -1,5 +1,6 @@
 import React, { useRef, useState, Component } from 'react'
-import { View, Text, Button, StyleSheet, Animated } from 'react-native'
+import { View, Text, Button, Animated } from 'react-native'
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 import Header from '../../components/Header/Header';
 import Planet from '../../components/MySpace/Planet';
@@ -21,9 +22,10 @@ export default function OuterPlanet({ navigation }) {
   )
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: EStyleSheet.value('$primary_Main')
   },
   introDesc: {
     textAlign: 'center',

@@ -1,28 +1,30 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
+import EStyleSheet from 'react-native-extended-stylesheet';
+
+import styleGuide from '../../utils/styleGuide';
 
 export default function MusicDesc() {
   return (
     <View style={styles.container}>
-      <Text style={styles.singer}>카더가든</Text>
-      <Text style={styles.title}>나무</Text>
+      <Text style={[styleGuide.display_05, styles.singer]}>OHAYO MY NIGHT</Text>
+      <Text style={[styleGuide.display_06, styleGuide.font_light, styles.title]}>D-Hack</Text>
     </View>
   )
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
     position: 'absolute',
-    top: vh(80),
+    top: '80%',
     alignSelf: 'center'
   },
   singer: {
     textAlign: 'center',
-    fontSize: 30
+    color: '#fff'
   },
   title: {
     textAlign: 'center',
-    fontSize: 20
+    color: '#fff'
   }
 })
