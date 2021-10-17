@@ -25,49 +25,49 @@ EStyleSheet.build({
 
 const styleGuide = EStyleSheet.create({
   display_01: {
-    fontFamily: 'NotoSansKR-Bold',
+    fontFamily: 'NotoSansKR',
     fontSize: 40,
     lineHeight: 52,
     letterSpacing: -0.6
   },
   display_02: {
-    fontFamily: 'NotoSansKR-Bold',
+    fontFamily: 'NotoSansKR',
     fontSize: 36,
     lineHeight: 46,
     letterSpacing: -0.6
   },
   display_03: {
-    fontFamily: 'NotoSansKR-Bold',
+    fontFamily: 'NotoSansKR',
     fontSize: 36,
     lineHeight: 46,
     letterSpacing: -0.6
   },
   display_04: {
-    fontFamily: 'NotoSansKR-Bold',
+    fontFamily: 'NotoSansKR',
     fontSize: 24,
     lineHeight: 34,
     letterSpacing: -0.6
   },
   display_05: {
-    fontFamily: 'NotoSansKR-Bold',
+    fontFamily: 'NotoSansKR',
     fontSize: 20,
     lineHeight: 30,
     letterSpacing: -0.6
   },
   display_06: {
-    fontFamily: 'NotoSansKR-Bold',
+    fontFamily: 'NotoSansKR',
     fontSize: 16,
     lineHeight: 22,
     letterSpacing: -0.6
   },
   display_07: {
-    fontFamily: 'NotoSansKR-Bold',
+    fontFamily: 'NotoSansKR',
     fontSize: 14,
     lineHeight: 20,
     letterSpacing: -0.6
   },
   display_08: {
-    fontFamily: 'NotoSansKR-Bold',
+    fontFamily: 'NotoSansKR',
     fontSize: 12,
     lineHeight: 18,
     letterSpacing: -0.6
@@ -94,6 +94,9 @@ const styleGuide = EStyleSheet.create({
   font_light: {
     fontFamily: 'NotoSansKR-Light'
   },
+  font_bold: {
+    fontFamily: 'NotoSansKR-Bold'
+  }
 })
 
 export default styleGuide
