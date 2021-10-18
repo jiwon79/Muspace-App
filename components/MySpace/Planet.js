@@ -1,24 +1,23 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ImageBackground  } from 'react-native'
 import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
-export default function Planet() {
+export default function Planet(props) {
   return (
-    <View style={styles.planet}></View>
+    <ImageBackground style={styles.planet} source={require('./../../assets/image/Planet.png')}>
+      {props.children}
+    </ImageBackground>
   )
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   planet: {
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    position: 'absolute',
-    top: vh(50),
+    marginTop: '10%',
     alignSelf: 'center',
-    height: vw(90),
-    width: vw(90),
-    transform: [{ translateY: -vw(45)}],
+    justifyContent: 'center',
+    height: 335,
+    width: 335,
     borderRadius: vw(45),
-    backgroundColor: '#aaaaaa'
   }
 })

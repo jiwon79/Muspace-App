@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, SafeAreaView, View, Text, Platform } from 'react-native';
+import { SafeAreaView, View, Text, Platform } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
 import { createStore } from 'redux';
@@ -58,16 +58,16 @@ export function App() {
 }
 const headerHeight = 49;
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   statusBarBackground: {
-    backgroundColor: '#000',
+    backgroundColor: EStyleSheet.value('$primary_05'),
     flex: 1,
     paddingTop: Platform.OS === 'ios' ? Constants.statusBarHeight : 0,
     height: Platform.OS === 'ios' ? Constants.statusBarHeight + headerHeight : headerHeight,
   },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: EStyleSheet.value('$primary_Main'),
     paddingTop: Constants.statusBarHeight
   },
   statusBar: {
