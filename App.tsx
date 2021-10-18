@@ -7,6 +7,7 @@ import { Provider, useSelector, useDispatch } from "react-redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { RootState } from 'typesafe-actions';
 import { useFonts } from 'expo-font'
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 import rootReducer from './modules';
 import LandingNav from './Navigations/LandingNav';
@@ -39,7 +40,7 @@ export function App() {
   
   return (
     <View style={styles.statusBarBackground}>
-      <StatusBar backgroundColor='#1E243D' style='light'/>
+      <StatusBar backgroundColor={EStyleSheet.value('$primary_05')} style='light'/>
       <SafeAreaView style={styles.container}>
         {loaded
         ?
