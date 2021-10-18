@@ -16,7 +16,7 @@ export default function Header({ navigation }) {
       </TouchableOpacity>
       
       <Text style={[styleGuide.display_04, styles.title]}>
-        기셔님의 행성
+        기셔<Text style={styleGuide.font_light}>님의 행성</Text>
       </Text>
       
       <TouchableOpacity
