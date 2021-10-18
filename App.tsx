@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, SafeAreaView, View, Text } from 'react-native';
+import { StyleSheet, SafeAreaView, View, Text, Platform } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
 import { createStore } from 'redux';
 import { Provider, useSelector, useDispatch } from "react-redux";
@@ -37,32 +38,38 @@ export function App() {
   })
   
   return (
-    <>
-    {loaded
-    ?
-      onlogged
-      ?
+    <View style={styles.statusBarBackground}>
+      <StatusBar backgroundColor='#1E243D' style='light'/>
       <SafeAreaView style={styles.container}>
-        <MainBottomNav/>
+        {loaded
+        ?
+          onlogged
+          ?
+          <MainBottomNav/>
+          :
+          <LandingNav/>
+        :
+          <Text>before load</Text>
+        } 
       </SafeAreaView>
-      :
-      <SafeAreaView style={styles.container}>
-        <LandingNav/>
-      </SafeAreaView>
-      
-    :
-      <SafeAreaView style={styles.container}>
-        <Text>before load</Text>
-      </SafeAreaView>
-    } 
-    </>
+    </View>
   )
 }
+const headerHeight = 49;
 
 const styles = StyleSheet.create({
+  statusBarBackground: {
+    backgroundColor: '#000',
+    flex: 1,
+    paddingTop: Platform.OS === 'ios' ? Constants.statusBarHeight : 0,
+    height: Platform.OS === 'ios' ? Constants.statusBarHeight + headerHeight : headerHeight,
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
     paddingTop: Constants.statusBarHeight
   },
+  statusBar: {
+    backgroundColor: '#000'
+  }
 });
