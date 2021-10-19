@@ -1,23 +1,51 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ImageBackground } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
 
 import styleGuide from '../../utils/styleGuide';
+import Pause from './../../assets/icon/Pause_white.svg'
 
 export default function BottomMusicBar() {
   return (
     <View style={styles.container}>
-      <Text style={[styleGuide.display_01, styleGuide.font_light]}>bottom music bar</Text>
+      <ImageBackground style={styles.album} source={require('./../../assets/image/musicBarAlbum4.png')} />
+      <View>
+        <Text style={[styleGuide.display_07, styles.songTitle]}>
+          OHAYO MY NIGHT
+        </Text>
+        <Text style={[styleGuide.display_08, styleGuide.font_light, styles.singer]}
+          >D-Hack
+        </Text>
+      </View>
+      <Pause/>
     </View>
   )
 }
 
 const styles = EStyleSheet.create({
   container: {
-    backgroundColor: '#eee',
+    backgroundColor: EStyleSheet.value('$darkGray'),
     width: '$screenWidth',
-    height: 50,
+    height: 60,
     zIndex: 10,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  album: {
+    width: 40,
+    height: 40,
+    borderWidth: 1,
+    marginLeft: 20,
+    marginRight: 12
+  },
+  songTitle: {
+    color: EStyleSheet.value('$white')
+  },
+  singer: {
+    color: EStyleSheet.value('$white')
+  },
+  pauseIcon: {
+    position: 'relative',
+    right: 0
   }
 })
