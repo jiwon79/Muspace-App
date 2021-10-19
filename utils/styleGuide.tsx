@@ -16,6 +16,8 @@ EStyleSheet.build({
   $grayscale_02: '#E3E3E3',
   $grayscale_03: '#CFCFCF',
   $black: '#000000',
+  $darkGray: '#282828',
+  $darkGray_02: '#363636',
 
   $secondary_Secondary: '#FC6F23',
   $secondary_02: '#FF9155',
@@ -73,7 +75,7 @@ const styleGuide = EStyleSheet.create({
     letterSpacing: -0.6
   },
 
-  text_1: {
+  text_01: {
     fontFamily: 'NotoSansKR',
     fontSize: 16,
     lineHeight: 24,
