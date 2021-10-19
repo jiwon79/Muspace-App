@@ -92,7 +92,6 @@ export default function InPlanet({ navigation }) {
 const styles = EStyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     backgroundColor: EStyleSheet.value('$primary_Main'),
   },
   hobbyComponents: {
