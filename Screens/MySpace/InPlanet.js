@@ -33,7 +33,7 @@ export default function InPlanet({ navigation }) {
     const planetTranslate = Animated.timing(
       TranslateAnim,
       {
-        toValue: vh(-15),
+        toValue: vh(10),
         duratoin: 1000,
         useNativeDriver: true
       }
@@ -92,6 +92,8 @@ export default function InPlanet({ navigation }) {
 const styles = EStyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    backgroundColor: EStyleSheet.value('$primary_Main'),
   },
   hobbyComponents: {
     position: 'absolute',

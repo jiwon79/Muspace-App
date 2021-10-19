@@ -16,7 +16,7 @@ export default function MusicDesc() {
 const styles = EStyleSheet.create({
   container: {
     position: 'absolute',
-    top: '80%',
+    bottom: 60,
     alignSelf: 'center'
   },
   singer: {

@@ -12,12 +12,15 @@ export default function Planet(props) {
 }
 
 const styles = EStyleSheet.create({
+  $planetSize: 335,
+  $planetHalfSize: '$planetSize/2',
   planet: {
-    marginTop: '10%',
+    position: 'absolute',
+    top: '45% - $planetHalfSize',
     alignSelf: 'center',
     justifyContent: 'center',
-    height: 335,
-    width: 335,
-    borderRadius: vw(45),
+    height: '$planetSize',
+    width: '$planetSize',
+    borderRadius: '0.5 * $planetSize',
   }
 })
