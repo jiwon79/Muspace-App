@@ -57,6 +57,7 @@ function MainBottomCustumTab({ state, descriptors, navigation }) {
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
+            key={route.name}
             style={[styles.tabItem, { 
               backgroundColor: isFocused ? EStyleSheet.value('$darkGray') : EStyleSheet.value('$white')
             }]}

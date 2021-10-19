@@ -9,7 +9,7 @@ const Drawer = createDrawerNavigator();
 export default function OuterPlanetSideNav(): ReactElement {
   return (
     <Drawer.Navigator 
-      initialRouteName="Home"
+      initialRouteName="OuterPlanetMain"
       screenOptions={{
         headerShown: false
       }}  
