@@ -5,7 +5,6 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import Header from '../../components/Header/Header';
 import Planet from '../../components/MySpace/Planet';
 import MusicThum from '../../components/MySpace/MusicThum';
-import Introduce from '../../components/MySpace/Introduce';
 import MusicDesc from '../../components/MySpace/MusicDesc';
 
 export default function OuterPlanet({ navigation }) {

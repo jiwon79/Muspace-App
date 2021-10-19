@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import MySpaceNav from './MySpaceNav';
 import SpaceJourneyNav from './SpaceJourneyNav';
-import OurSpace from './../Screens/OurSpace';
+import MainBottomCustumTab from './MainBottomCustumTab'
 
 const Tab = createBottomTabNavigator();
 const getTabBarVisible = (route) => {
@@ -19,22 +19,26 @@ export default function MainBottomNav() {
     <NavigationContainer>
       <Tab.Navigator 
         initialRouteName="MySpace"
-        screenOptions={{
-          headerShown: false
-        }}
+        tabBar={props => <MainBottomCustumTab {...props} />}
+        screenOptions={({ route }) => ({
+          headerShown: false,
+        })
+      }
       >
         <Tab.Screen 
           name="SpaceJourney"
           component={SpaceJourneyNav}
           options={({ route }) => ({
-            tabBarStyle: getTabBarVisible(route)
+            tabBarStyle: getTabBarVisible(route),
+            tabBarLabel: '스페이스 저니'
           })}
         />
         <Tab.Screen 
           name="MySpace" 
           component={MySpaceNav}
           options={({ route }) => ({
-            tabBarStyle: getTabBarVisible(route)
+            tabBarStyle: getTabBarVisible(route),
+            tabBarLabel: '마이 스페이스'
           })}
         />
       </Tab.Navigator>
