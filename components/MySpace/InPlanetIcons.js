@@ -1,52 +1,60 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { AntDesign } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Foundation } from '@expo/vector-icons';
+
+import styleGuide from "../../utils/styleGuide";
+import Calendar from './../../assets/icon/Calendar_white.svg'
+import PlayList from './../../assets/icon/Playlist_white.svg'
+import Footprint from './../../assets/icon/FootPrint_white.svg'
+import Edit from './../../assets/icon/Edit_white.svg'
 
 export default function InPlanetIcons() {
   return (
-    <View style={styles.contianer}>
+    <View style={styles.container}>
       <View style={styles.iconContainer}>
-        <Text style={styles.text}>캘린더</Text>
-        <AntDesign name="calendar" style={styles.icon}/>
+        <Calendar/>
+        <Text style={[styles.text, styleGuide.display_08]}>캘린더</Text>
       </View>
       
       <View style={styles.iconContainer}>
-        <Text style={styles.text}>플레이리스트</Text>
-        <MaterialCommunityIcons name="file-document-outline" style={styles.icon} />
+        <PlayList/>
+        <Text style={[styles.text, styleGuide.display_08]}>플레이리스트</Text>
       </View>
       
       <View style={styles.iconContainer}>
-        <Text style={styles.text}>발자국</Text>
-        <Foundation name="foot" style={styles.icon} />
+        <Footprint/>
+        <Text style={[styles.text, styleGuide.display_08]}>발자국</Text>
       </View>
 
       <View style={styles.iconContainer}>
-        <Text style={styles.text}>편집</Text>
-        <AntDesign name="edit" style={styles.icon} />
+        <Edit/>
+        <Text style={[styles.text, styleGuide.display_08]}>편집</Text>
       </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  contianer: {
+  container: {
     position: 'absolute',
-    top: '10%',
-    width: '90%',
-    marginTop: '8%',
-    marginLeft: '5%',
+    top: 24,
+    alignSelf: 'center',
+    width: 300,
+    height: 66,
+    borderRadius: 33,
+    borderWidth: 2,
+    borderColor: '#fff',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'center'
   },
   iconContainer: {
     flexDirection: 'column',
-    margin: 10
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 70,
   },
   text: {
     textAlign: 'center',
-    fontSize: 12
+    color: '#fff'
   },
   icon: {
     textAlign: 'center',
