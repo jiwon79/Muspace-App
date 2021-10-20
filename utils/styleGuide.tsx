@@ -3,6 +3,8 @@ import { Dimensions } from 'react-native';
 
 EStyleSheet.build({
   $screenWidth: Dimensions.get('window').width,
+  $screenHeight: Dimensions.get('window').height,
+
   $primary_Main: '#170E30',
   $primary_02: '#321E6A',
   $primary_03: '#4C2BA9',
@@ -22,7 +24,7 @@ EStyleSheet.build({
   $secondary_Secondary: '#FC6F23',
   $secondary_02: '#FF9155',
   $secondary_03: '#FFB188',
-  $secondary_04: '#FFCFB6'
+  $secondary_04: '#FFCFB6',
 })
 
 const styleGuide = EStyleSheet.create({

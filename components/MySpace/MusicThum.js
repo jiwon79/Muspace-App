@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     height: 224,
     width: 224,
-    borderRadius: 112
+    borderRadius: 112,
   },
   button: {
     alignSelf: 'center',

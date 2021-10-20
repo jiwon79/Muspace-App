@@ -24,7 +24,7 @@ export default function InPlanet({ navigation }) {
     const planetScale = Animated.timing(
       ScaleAnim,
       {     
-        toValue: 2,
+        toValue: 1.7,
         duration: 1000,
         useNativeDriver: true
       }
@@ -33,7 +33,7 @@ export default function InPlanet({ navigation }) {
     const planetTranslate = Animated.timing(
       TranslateAnim,
       {
-        toValue: vh(10),
+        toValue: 335/2+94-0.45*EStyleSheet.value('$screenHeight'),
         duratoin: 1000,
         useNativeDriver: true
       }
@@ -65,10 +65,10 @@ export default function InPlanet({ navigation }) {
 
       <Animated.View
         style={{
-          transform: [
+        transform: [
             { scale: ScaleAnim },
-            { translateY: TranslateAnim }
-          ],
+            { translateY: TranslateAnim },
+        ],
         }}
       >
         <Planet/>
@@ -90,6 +90,8 @@ export default function InPlanet({ navigation }) {
 }
 
 const styles = EStyleSheet.create({
+    $planetSize: 568,
+
   container: {
     flex: 1,
     backgroundColor: EStyleSheet.value('$primary_Main'),
