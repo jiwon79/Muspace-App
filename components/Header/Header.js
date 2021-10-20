@@ -10,7 +10,9 @@ export default function Header({ navigation }) {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => console.log('press')}
+        onPress={() => {
+          console.log('press');
+        }}
         >
         <Discovery/>
       </TouchableOpacity>

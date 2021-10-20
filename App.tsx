@@ -11,7 +11,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 import rootReducer from './modules';
 import LandingNav from './Navigations/LandingNav';
-import MainBottomNav from './Navigations/MainBottomNav';
+import Index from './Navigations/MainBottomNav';
 
 export default function AppWrapper() {
   const store = createStore(
@@ -43,14 +43,10 @@ export function App() {
       <StatusBar backgroundColor={EStyleSheet.value('$primary_05')} style='light'/>
       <SafeAreaView style={styles.container}>
         {loaded
-        ?
-          onlogged
-          ?
-          <MainBottomNav/>
-          :
-          <LandingNav/>
-        :
-          <Text>before load</Text>
+        ? onlogged
+          ? <Index/>
+          : <LandingNav/>
+        : <Text>before load</Text>
         } 
       </SafeAreaView>
     </View>

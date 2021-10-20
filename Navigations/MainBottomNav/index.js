@@ -2,9 +2,9 @@ import React from 'react'
 import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import MySpaceNav from './MySpaceNav';
-import SpaceJourneyNav from './SpaceJourneyNav';
-import MainBottomCustumTab from './MainBottomCustumTab'
+import MySpaceNav from '../MySpaceNav';
+import SpaceJourneyNav from '../SpaceJourneyNav';
+import CustumTab from './CustumTab'
 
 const Tab = createBottomTabNavigator();
 const getTabBarVisible = (route) => {
@@ -14,12 +14,12 @@ const getTabBarVisible = (route) => {
   }
 }
 
-export default function MainBottomNav() {
+export default function Index() {
   return (
     <NavigationContainer>
       <Tab.Navigator 
         initialRouteName="MySpace"
-        tabBar={props => <MainBottomCustumTab {...props} />}
+        tabBar={props => <CustumTab {...props} />}
         screenOptions={({ route }) => ({
           headerShown: false,
         })

@@ -2,13 +2,13 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-import styleGuide from '../utils/styleGuide';
-import MySpaceIcon from './../assets/icon/MySpace.svg'
-import MySpaceIcon_white from './../assets/icon/MySpace_white.svg'
-import SpaceJourney from './../assets/icon/SpaceJourney.svg'
-import SpaceJourney_white from './../assets/icon/SpaceJourney_white.svg'
+import styleGuide from '../../utils/styleGuide';
+import MySpaceIcon from '../../assets/icon/MySpace.svg'
+import MySpaceIcon_white from '../../assets/icon/MySpace_white.svg'
+import SpaceJourney from '../../assets/icon/SpaceJourney.svg'
+import SpaceJourney_white from '../../assets/icon/SpaceJourney_white.svg'
 
-function MainBottomCustumTab({ state, descriptors, navigation }) {
+function CustumTab({ state, descriptors, navigation }) {
   return (
     <View style={styles.container}>
       {state.routes.map((route, index) => {
@@ -93,4 +93,4 @@ const styles = EStyleSheet.create({
   }
 })
 
-export default MainBottomCustumTab
+export default CustumTab
