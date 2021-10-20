@@ -5,26 +5,28 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import styleGuide from '../../utils/styleGuide';
 import Discovery from './../../assets/icon/Discovery_white.svg'
 import MainMenu from './../../assets/icon/MainMenu_white.svg'
+import Back from './../../assets/icon/Back_white.svg'
 
-export default function Header({ navigation }) {
+export default function Header({ route, navigation }) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => {
-          console.log('press');
-        }}
+      {route.name === 'OuterPlanet'
+      ? <TouchableOpacity>
+          <Discovery style={[styles.icon]}/>
+        </TouchableOpacity>
+      : <TouchableOpacity
+          onPress={() => {navigation.goBack()}}
         >
-        <Discovery/>
-      </TouchableOpacity>
+          <Back style={[styles.icon]}/>
+        </TouchableOpacity>
+      }
       
       <Text style={[styleGuide.display_04, styles.title]}>
         기셔<Text style={styleGuide.font_light}>님의 행성</Text>
       </Text>
       
-      <TouchableOpacity
-        onPress={() => navigation.openDrawer()}
-      >
-        <MainMenu/>
+      <TouchableOpacity>
+        <MainMenu style={[styles.icon]}/>
       </TouchableOpacity>
     </View>
   )
@@ -34,12 +36,15 @@ const styles = EStyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     padding: 20
   },
   title: {
     color: '#fff'
   },
-  text: {
-    fontSize: 20
+  icon: {
+    transform: [{
+      scale: 4/3
+    }]
   }
 })
