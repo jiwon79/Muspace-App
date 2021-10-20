@@ -5,7 +5,7 @@ import Constants from 'expo-constants';
 import { createStore } from 'redux';
 import { Provider, useSelector, useDispatch } from "react-redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { RootState } from 'typesafe-actions';
+import { RootState } from "./modules";
 import { useFonts } from 'expo-font'
 import EStyleSheet from 'react-native-extended-stylesheet';
 
