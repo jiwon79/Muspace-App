@@ -8,7 +8,7 @@ import Pause from './../../assets/icon/Pause_white.svg'
 export default function BottomMusicBar() {
   return (
     <View style={styles.container}>
-      <ImageBackground style={styles.album} source={require('./../../assets/image/musicBarAlbum4.png')} />
+      <ImageBackground style={styles.album} source={require('../../assets/image/Album.jpg')} />
       <View>
         <Text style={[styleGuide.display_07, styles.songTitle]}>
           OHAYO MY NIGHT

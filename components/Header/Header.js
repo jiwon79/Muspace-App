@@ -4,7 +4,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 import styleGuide from '../../utils/styleGuide';
 import Discovery from './../../assets/icon/Discovery_white.svg'
-import More from './../../assets/icon/More_white.svg'
+import MainMenu from './../../assets/icon/MainMenu_white.svg'
 
 export default function Header({ navigation }) {
   return (
@@ -24,7 +24,7 @@ export default function Header({ navigation }) {
       <TouchableOpacity
         onPress={() => navigation.openDrawer()}
       >
-        <More/>
+        <MainMenu/>
       </TouchableOpacity>
     </View>
   )
