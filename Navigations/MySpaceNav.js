@@ -21,7 +21,7 @@ export default function MySpaceNav() {
     >
       <Stack.Screen 
         name="OuterPlanet" 
-        component={OuterPlanetSideNav}
+        component={OuterPlanet}
         option={{
           headerShown: false
         }}  

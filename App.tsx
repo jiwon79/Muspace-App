@@ -11,7 +11,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 import rootReducer from './modules';
 import LandingNav from './Navigations/LandingNav';
-import Index from './Navigations/MainBottomNav';
+import MainBottomNav from './Navigations/MainBottomNav';
 
 export default function AppWrapper() {
   const store = createStore(
@@ -44,7 +44,7 @@ export function App() {
       <SafeAreaView style={styles.container}>
         {loaded
         ? onlogged
-          ? <Index/>
+          ? <MainBottomNav/>
           : <LandingNav/>
         : <Text>before load</Text>
         } 
@@ -52,17 +52,18 @@ export function App() {
     </View>
   )
 }
-const headerHeight = 49;
 
+const headerHeight = 49;
 const styles = EStyleSheet.create({
   statusBarBackground: {
-    backgroundColor: EStyleSheet.value('$primary_05'),
     flex: 1,
+    backgroundColor: EStyleSheet.value('$primary_05'),
     paddingTop: Platform.OS === 'ios' ? Constants.statusBarHeight : 0,
     height: Platform.OS === 'ios' ? Constants.statusBarHeight + headerHeight : headerHeight,
   },
   container: {
     flex: 1,
+    zIndex: 1,
     backgroundColor: EStyleSheet.value('$primary_Main'),
     paddingTop: Constants.statusBarHeight
   },
