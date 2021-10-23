@@ -8,7 +8,7 @@ import Base64ArrayBuffer from 'base64-arraybuffer';
 import Base64 from 'Base64'
 
 import HobbyFeedHeader from '../../components/Header/HobbyFeedHeader';
-import HobbyContent from '../../components/MySpace/HobbyContent';
+import HobbyContent from '../../components/Feed/HobbyContent';
 
 export default function Feed({ navigation, route }) {
   const hobby = route.params.hobby;
@@ -32,7 +32,7 @@ export default function Feed({ navigation, route }) {
     console.log(feedFetchData);
     setFeedList(feedFetchData);
 
-    for (var i=0; i<feedFetchData.length; i++) {
+    for (let i=0; i<feedFetchData.length; i++) {
       const postId = feedFetchData[i].id;
       const imageResponse = await axios.get(APIURL+'get_image?post_id='+postId, {
         responseType: 'arraybuffer'

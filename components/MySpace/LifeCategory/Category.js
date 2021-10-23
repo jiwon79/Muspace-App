@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import {TouchableHighlight} from 'react-native-gesture-handler'
 
-import styleGuide from "../../utils/styleGuide";
+import styleGuide from "../../../utils/styleGuide";
 
 export default function Category({ hobby, navigation }) {
   return (

@@ -5,9 +5,9 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 import Header from '../../components/Header/Header';
 import Planet from '../../components/MySpace/Planet';
-import InPlanetIcons from '../../components/MySpace/InPlanetIcons';
+import InPlanetMenu from '../../components/MySpace/InPlanetMenu';
 import BottomMusicBar from '../../components/Music/BottomMusicBar';
-import LifeCategory from '../../components/MySpace/LifeCategory';
+import LifeCategory from '../../components/MySpace/LifeCategory/lifeCategory';
 
 export default function InPlanet({ route, navigation }) {
   const ScaleAnim = useRef(new Animated.Value(1)).current;
@@ -52,7 +52,7 @@ export default function InPlanet({ route, navigation }) {
     <View style={styles.container} >
       <Header route={route} navigation={navigation}/>
       <Animated.View style={{opacity: FadeInAnim}}>
-        <InPlanetIcons/>
+        <InPlanetMenu/>
       </Animated.View>
 
       <Animated.View

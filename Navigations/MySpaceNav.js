@@ -1,9 +1,7 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import OuterPlanet from './../Screens/MySpace/OuterPlanet';
+import OuterPlanet from '../Screens/MySpace/OuterPlanet';
 import InPlanet from '../Screens/MySpace/InPlanet';
 import HobbyNav from './HobbyNav'
 import OuterPlanetSideNav from './OuterPlanetSideNav';

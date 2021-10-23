@@ -7,7 +7,7 @@ import PlayList from './../../assets/icon/Playlist_white.svg'
 import Footprint from './../../assets/icon/FootPrint_white.svg'
 import Edit from './../../assets/icon/Edit_white.svg'
 
-export default function InPlanetIcons() {
+export default function InPlanetMenu() {
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>
