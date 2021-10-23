@@ -1,29 +1,23 @@
 import React, { useEffect, useRef } from 'react'
-import { View, Text, Button, FlatList, Animated, StyleSheet } from 'react-native'
+import {View, Text, Button, FlatList, Animated, StyleSheet, TouchableOpacity} from 'react-native'
 import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 import Header from '../../components/Header/Header';
 import Planet from '../../components/MySpace/Planet';
-import Hobby from '../../components/MySpace/Hobby';
 import InPlanetIcons from '../../components/MySpace/InPlanetIcons';
 import BottomMusicBar from '../../components/Music/BottomMusicBar';
+import LifeCategory from '../../components/MySpace/LifeCategory';
 
-const hobbyList = ['음식', '운동', '음악', '글귀', '여행', '책'];
-
-export default function InPlanet({ navigation }) {
+export default function InPlanet({ route, navigation }) {
   const ScaleAnim = useRef(new Animated.Value(1)).current;
-  const TranslateAnim = useRef(new Animated.Value(vw(-10))).current;
+  const TranslateAnim = useRef(new Animated.Value(-78)).current;
   const FadeInAnim = useRef(new Animated.Value(0)).current;
-
-  const hobbyComponents = hobbyList.map((hobby, index) =>(
-    <Hobby key={index} hobby={hobby} navigation={navigation}/>
-  ));
 
   useEffect(() => {
     const planetScale = Animated.timing(
       ScaleAnim,
-      {     
+      {
         toValue: 1.7,
         duration: 1000,
         useNativeDriver: true
@@ -34,7 +28,7 @@ export default function InPlanet({ navigation }) {
       TranslateAnim,
       {
         toValue: 335/2+94-0.45*EStyleSheet.value('$screenHeight'),
-        duratoin: 1000,
+        duration: 1000,
         useNativeDriver: true
       }
     );
@@ -56,42 +50,33 @@ export default function InPlanet({ navigation }) {
 
   return (
     <View style={styles.container} >
-      <Header/>
-      <Animated.View
-        style={{opacity: FadeInAnim}}
-      >
+      <Header route={route} navigation={navigation}/>
+      <Animated.View style={{opacity: FadeInAnim}}>
         <InPlanetIcons/>
       </Animated.View>
 
       <Animated.View
         style={{
-        transform: [
+          transform: [
             { scale: ScaleAnim },
             { translateY: TranslateAnim },
-        ],
+          ],
         }}
       >
         <Planet/>
       </Animated.View>
-      
-      <Animated.View 
-        style={[styles.hobbyComponents, { opacity: FadeInAnim }]}
-      >
-        {hobbyComponents}
+
+      <Animated.View style={[{ opacity: FadeInAnim }]}>
+        <LifeCategory navigation={navigation}/>
       </Animated.View>
 
-      <Animated.View 
-        style={[styles.bottomMusicBar, { opacity: FadeInAnim }]}
-      >
-        <BottomMusicBar/>
-      </Animated.View>
+      <BottomMusicBar/>
     </View>
   )
 }
 
 const styles = EStyleSheet.create({
-    $planetSize: 568,
-
+  $planetSize: 568,
   container: {
     flex: 1,
     backgroundColor: EStyleSheet.value('$primary_Main'),
@@ -106,9 +91,5 @@ const styles = EStyleSheet.create({
     paddingLeft: '10%',
     paddingRight: '10%',
     flexWrap: 'wrap'
-  },
-  bottomMusicBar: {
-    position: 'absolute',
-    bottom: 0
   }
 })

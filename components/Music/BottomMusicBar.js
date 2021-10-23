@@ -24,6 +24,8 @@ export default function BottomMusicBar() {
 
 const styles = EStyleSheet.create({
   container: {
+    position: 'absolute',
+    bottom: 0,
     backgroundColor: EStyleSheet.value('$darkGray'),
     width: '$screenWidth',
     height: 60,

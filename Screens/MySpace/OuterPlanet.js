@@ -7,10 +7,10 @@ import Planet from '../../components/MySpace/Planet';
 import MusicThum from '../../components/MySpace/MusicThum';
 import MusicDesc from '../../components/MySpace/MusicDesc';
 
-export default function OuterPlanet({ navigation }) {
+export default function OuterPlanet({ route, navigation }) {
   return (
     <View style={styles.container}>
-      <Header navigation={navigation} />
+      <Header route={route} navigation={navigation} />
       <Planet>
         <MusicThum navigation={navigation}/>
       </Planet>
