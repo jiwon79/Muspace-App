@@ -8,7 +8,7 @@ import FeedWrite from '../Screens/Hobby/FeedWrite';
 
 const Stack = createStackNavigator();
 
-export default function MySpaceNav({ navigation, route }) {
+export default function FeedNav({ navigation, route }) {
   return (
     <Stack.Navigator 
     initialRouteName="Feed"
