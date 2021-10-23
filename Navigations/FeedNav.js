@@ -3,8 +3,8 @@ import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Feed from '../Screens/Hobby/Feed';
-import FeedWrite from '../Screens/Hobby/FeedWrite';
+import Feed from '../Screens/Feed/Feed';
+import FeedWrite from '../Screens/Feed/FeedWrite';
 
 const Stack = createStackNavigator();
 
@@ -23,13 +23,13 @@ export default function FeedNav({ navigation, route }) {
           headerShown: false
         }}
         initialParams={
-          { hobby: route.params.hobby }
+          { category: route.params.category }
         }
       />
       <Stack.Screen 
         name="FeedWrite"
         component={FeedWrite}
-        initialParams={{ hobby: route.params.hobby }}
+        initialParams={{ category: route.params.category }}
       />
     </Stack.Navigator>
   )

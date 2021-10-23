@@ -2,13 +2,13 @@ import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'; 
 
-export default function HobbyFeedHeader({ hobby, navigation }) {
+export default function FeedHeader({ category, navigation }) {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => navigation.navigate('InPlanet')}>
         <AntDesign name='left'style={styles.icon}/>
       </TouchableOpacity>
-      <Text style={styles.text}>{hobby}</Text>
+      <Text style={styles.text}>{category}</Text>
       <TouchableOpacity onPress={() => navigation.navigate('FeedWrite')}>
         <AntDesign name='plus'style={styles.icon}/>
       </TouchableOpacity>

@@ -7,7 +7,7 @@ import Header from '../../components/Header/Header';
 import Planet from '../../components/MySpace/Planet/Planet';
 import InPlanetMenu from '../../components/MySpace/InPlanetMenu';
 import BottomMusicBar from '../../components/Music/BottomMusicBar';
-import LifeCategory from '../../components/MySpace/LifeCategory/lifeCategory';
+import LifeCategory from '../../components/MySpace/LifeCategory/LifeCategory';
 
 export default function InPlanet({ route, navigation }) {
   const ScaleAnim = useRef(new Animated.Value(1)).current;

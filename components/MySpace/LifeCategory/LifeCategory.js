@@ -3,11 +3,11 @@ import { View, Text } from 'react-native'
 import EStyleSheet from 'react-native-extended-stylesheet'
 import Category from "./Category";
 
-const hobbyList = ['취미', '음식', '여행', '책', '운동', '문화생활', '음악', '공부', '게임'];
+const lifeCategoryList = ['취미', '음식', '여행', '책', '운동', '문화생활', '음악', '공부', '게임'];
 
 export default function LifeCategory({ navigation }) {
-  const hobbyComponents = hobbyList.map((hobby, index) =>(
-    <Category key={index} hobby={hobby} navigation={navigation}/>
+  const hobbyComponents = lifeCategoryList.map((category, index) =>(
+    <Category key={index} category={category} navigation={navigation}/>
   ));
 
   return (

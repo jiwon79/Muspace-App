@@ -29,7 +29,7 @@ export default function MySpaceNav() {
         component={InPlanet}
       />
       <Stack.Screen 
-        name="HobbyFeed" 
+        name="Feed"
         component={FeedNav}
       />
     </Stack.Navigator>

@@ -4,19 +4,19 @@ import {TouchableHighlight} from 'react-native-gesture-handler'
 
 import styleGuide from "../../../utils/styleGuide";
 
-export default function Category({ hobby, navigation }) {
+export default function Category({ category, navigation }) {
   return (
     <TouchableHighlight
-      style={styles.hobby}
-      onPress={() => navigation.navigate('HobbyFeed', {hobby})}
+      style={styles.category}
+      onPress={() => navigation.navigate('Feed', {category})}
     >
-      <Text style={[styles.text, styleGuide.display_06]}>{hobby}</Text>
+      <Text style={[styles.text, styleGuide.display_06]}>{category}</Text>
     </TouchableHighlight>
   )
 }
 
 const styles = StyleSheet.create({
-  hobby: {
+  category: {
     width: 80,
     height: 80,
     borderRadius: 40,

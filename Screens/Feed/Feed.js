@@ -4,14 +4,12 @@ import PagerView from 'react-native-pager-view';
 import { AntDesign } from '@expo/vector-icons'; 
 import axios from "axios";
 import { Buffer } from "buffer"
-import Base64ArrayBuffer from 'base64-arraybuffer';
-import Base64 from 'Base64'
 
-import HobbyFeedHeader from '../../components/Header/HobbyFeedHeader';
+import FeedHeader from '../../components/Header/FeedHeader';
 import HobbyContent from '../../components/Feed/HobbyContent';
 
 export default function Feed({ navigation, route }) {
-  const hobby = route.params.hobby;
+  const category = route.params.category;
   const APIURL = 'http://1e14-121-152-26-223.ngrok.io/';
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -21,7 +19,7 @@ export default function Feed({ navigation, route }) {
   const [feedComponents, setFeedComponents] = useState(null);
 
   const fetchFeedData = async () => {
-    const feedFetchData = await axios.get(APIURL+'get_post?category='+hobby)
+    const feedFetchData = await axios.get(APIURL+'get_post?category='+category)
     .then(function (response) {
       return response.data
     })
@@ -72,8 +70,8 @@ export default function Feed({ navigation, route }) {
 
   return (
     <View style={styles.container}>
-      <HobbyFeedHeader 
-        hobby={hobby}
+      <FeedHeader
+        category={category}
         navigation={navigation}
       />
       <View style={styles.contentContainer}>
