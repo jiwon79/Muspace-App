@@ -1,12 +1,12 @@
 import React from 'react'
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Image } from 'react-native'
 import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
-import Pause from './../../assets/icon/Pause_white.svg'
+import Pause from '../../../assets/icon/Pause_white.svg'
 
 export default function MusicThum({ navigation }) {
   return (
     <ImageBackground 
-      source={require('../../assets/image/Album.jpg')}
+      source={require('../../../assets/image/Album.jpg')}
       style={styles.imageContainer}
       resizeMode='contain'
     >

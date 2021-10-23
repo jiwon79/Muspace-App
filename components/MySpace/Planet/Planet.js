@@ -5,7 +5,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 export default function Planet(props) {
   return (
-    <ImageBackground style={styles.planet} source={require('./../../assets/image/Planet.png')}>
+    <ImageBackground style={styles.planet} source={require('../../../assets/image/Planet.png')}>
       {props.children}
     </ImageBackground>
   )

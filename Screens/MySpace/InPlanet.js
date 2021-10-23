@@ -4,7 +4,7 @@ import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 import Header from '../../components/Header/Header';
-import Planet from '../../components/MySpace/Planet';
+import Planet from '../../components/MySpace/Planet/Planet';
 import InPlanetMenu from '../../components/MySpace/InPlanetMenu';
 import BottomMusicBar from '../../components/Music/BottomMusicBar';
 import LifeCategory from '../../components/MySpace/LifeCategory/lifeCategory';
