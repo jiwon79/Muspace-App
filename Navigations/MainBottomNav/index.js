@@ -1,43 +1,42 @@
 import React from 'react'
-import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import { NavigationContainer, getFocusedRouteNameFromRoute, useNavigationState } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import MySpaceNav from '../MySpaceNav';
 import SpaceJourneyNav from '../SpaceJourneyNav';
-import CustumTab from './CustumTab'
+import CustomTab from './CustumTab'
 
 const Tab = createBottomTabNavigator();
-const getTabBarVisible = (route) => {
+const getTabBarVisible = ({navigation, route}) => {
   const routeName = getFocusedRouteNameFromRoute(route);
-  if (routeName == 'HobbyFeed' || routeName == 'JourneyGalaxy') {
+  if (routeName === 'HobbyFeed' || routeName === 'JourneyGalaxy' || routeName === 'InPlanet') {
     return { display: 'none' }
   }
 }
 
-export default function Index() {
+export default function MainBottomNav() {
   return (
     <NavigationContainer>
       <Tab.Navigator 
         initialRouteName="MySpace"
-        tabBar={props => <CustumTab {...props} />}
         screenOptions={({ route }) => ({
           headerShown: false,
-        })
-      }
+        })}
+        tabBar={props => <CustomTab {...props} />}
       >
         <Tab.Screen 
           name="SpaceJourney"
           component={SpaceJourneyNav}
-          options={({ route }) => ({
-            tabBarStyle: getTabBarVisible(route),
+          options={({ navigation, route }) => ({
+            tabBarStyle: getTabBarVisible({navigation, route}),
             tabBarLabel: '스페이스 저니'
           })}
         />
         <Tab.Screen 
           name="MySpace" 
           component={MySpaceNav}
-          options={({ route }) => ({
-            tabBarStyle: getTabBarVisible(route),
+          options={({ navigation, route }) => ({
+            tabBarStyle: getTabBarVisible({navigation, route}),
             tabBarLabel: '마이 스페이스'
           })}
         />

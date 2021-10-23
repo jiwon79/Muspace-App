@@ -9,8 +9,11 @@ import SpaceJourney from '../../assets/icon/SpaceJourney.svg'
 import SpaceJourney_white from '../../assets/icon/SpaceJourney_white.svg'
 
 function CustumTab({ state, descriptors, navigation }) {
+  const currentRouteKey = state.routes[state.index].key;
+  const currentRouteStyle =  descriptors[currentRouteKey].options.tabBarStyle;
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, currentRouteStyle]}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -19,9 +22,9 @@ function CustumTab({ state, descriptors, navigation }) {
             : options.title !== undefined
             ? options.title
             : route.name;
-        
+
         const isFocused = state.index === index;
-        
+
         const icon = 
           route.name === 'MySpace'
             ? isFocused ? <MySpaceIcon_white/> : <MySpaceIcon/>
@@ -58,11 +61,11 @@ function CustumTab({ state, descriptors, navigation }) {
             onPress={onPress}
             onLongPress={onLongPress}
             key={route.name}
-            style={[styles.tabItem, { 
+            style={[styles.tabItem, {
               backgroundColor: isFocused ? EStyleSheet.value('$darkGray') : EStyleSheet.value('$white')
             }]}
           >
-            <View style={styles.tabcIon}>
+            <View style={styles.tabIon}>
               {icon}
             </View>
             <Text style={[styleGuide.display_08, styles.tabLabel, { color: isFocused ? '#fff' : '#000' }]}>
@@ -85,7 +88,7 @@ const styles = EStyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center'
   },
-  tabcIon: {
+  tabIon: {
     marginTop: 9
   },
   tabLabel: {
