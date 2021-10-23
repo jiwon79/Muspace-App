@@ -8,14 +8,16 @@ import Pause from './../../assets/icon/Pause_white.svg'
 export default function BottomMusicBar() {
   return (
     <View style={styles.container}>
-      <ImageBackground style={styles.album} source={require('../../assets/image/Album.jpg')} />
-      <View>
-        <Text style={[styleGuide.display_07, styles.songTitle]}>
-          OHAYO MY NIGHT
-        </Text>
-        <Text style={[styleGuide.display_08, styleGuide.font_light, styles.singer]}
-          >D-Hack
-        </Text>
+      <View style={styles.leftContent}>
+        <ImageBackground style={styles.album} source={require('../../assets/image/Album.jpg')} />
+        <View>
+          <Text style={[styleGuide.display_07, styles.songTitle]}>
+            OHAYO MY NIGHT
+          </Text>
+          <Text style={[styleGuide.display_08, styleGuide.font_light, styles.singer]}>
+            D-Hack
+          </Text>
+        </View>
       </View>
       <Pause/>
     </View>
@@ -24,20 +26,25 @@ export default function BottomMusicBar() {
 
 const styles = EStyleSheet.create({
   container: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    alignItems: 'center',
     position: 'absolute',
     bottom: 0,
-    backgroundColor: EStyleSheet.value('$darkGray'),
+
     width: '$screenWidth',
     height: 60,
-    zIndex: 10,
-    flexDirection: 'row',
-    alignItems: 'center'
+    backgroundColor: EStyleSheet.value('$darkGray'),
+    paddingLeft: 20,
+    paddingRight: 20,
+  },
+  leftContent: {
+    flexDirection: 'row'
   },
   album: {
     width: 40,
     height: 40,
     borderWidth: 1,
-    marginLeft: 20,
     marginRight: 12
   },
   songTitle: {
@@ -46,8 +53,4 @@ const styles = EStyleSheet.create({
   singer: {
     color: EStyleSheet.value('$white')
   },
-  pauseIcon: {
-    position: 'relative',
-    right: 0
-  }
 })
