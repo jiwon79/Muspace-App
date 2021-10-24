@@ -1,5 +1,4 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React, { ReactElement } from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -11,7 +10,7 @@ import FindPwScreen from '../Screens/auth/FindPw';
 
 const Stack = createStackNavigator();
 
-export default function LandingNav() {
+export default function LandingNav(): ReactElement {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Landing">

@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react'
-import {View, Text, Button, FlatList, Animated, StyleSheet, TouchableOpacity} from 'react-native'
-import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
+import React, { useEffect, useRef, ReactElement } from 'react'
+import {View, Animated } from 'react-native'
 import EStyleSheet from 'react-native-extended-stylesheet';
+
+import { MySpaceInPlanetProp } from "../../utils/types";
 
 import Header from '../../components/Header/Header';
 import Planet from '../../components/MySpace/Planet/Planet';
@@ -9,7 +10,7 @@ import InPlanetMenu from '../../components/MySpace/InPlanetMenu';
 import BottomMusicBar from '../../components/Music/BottomMusicBar';
 import LifeCategory from '../../components/MySpace/LifeCategory/LifeCategory';
 
-export default function InPlanet({ route, navigation }) {
+export default function InPlanet({ route, navigation }: MySpaceInPlanetProp): ReactElement {
   const ScaleAnim = useRef(new Animated.Value(1)).current;
   const TranslateAnim = useRef(new Animated.Value(-78)).current;
   const FadeInAnim = useRef(new Animated.Value(0)).current;
@@ -19,7 +20,7 @@ export default function InPlanet({ route, navigation }) {
       ScaleAnim,
       {
         toValue: 1.7,
-        duration: 1000,
+        duration: 500,
         useNativeDriver: true
       }
     );
@@ -28,7 +29,7 @@ export default function InPlanet({ route, navigation }) {
       TranslateAnim,
       {
         toValue: 335/2+94-0.45*EStyleSheet.value('$screenHeight'),
-        duration: 1000,
+        duration: 500,
         useNativeDriver: true
       }
     );

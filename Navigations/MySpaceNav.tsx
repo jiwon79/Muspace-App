@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import OuterPlanet from '../Screens/MySpace/OuterPlanet';
@@ -8,7 +8,7 @@ import OuterPlanetSideNav from './OuterPlanetSideNav';
 
 const Stack = createStackNavigator();
 
-export default function MySpaceNav() {
+export default function MySpaceNav():ReactElement {
   return (
     <Stack.Navigator 
     initialRouteName="OuterPlanet"
@@ -20,7 +20,7 @@ export default function MySpaceNav() {
       <Stack.Screen 
         name="OuterPlanet" 
         component={OuterPlanet}
-        option={{
+        options={{
           headerShown: false
         }}  
       />
