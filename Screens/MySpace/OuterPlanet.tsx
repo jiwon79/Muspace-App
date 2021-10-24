@@ -4,7 +4,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 import {MySpaceOuterPlanetProp} from "../../utils/types";
 
-import Header from '../../components/Header/Header';
+import MySpaceHeader from '../../components/Header/MySpaceHeader';
 import Planet from '../../components/MySpace/Planet/Planet';
 import MusicThum from '../../components/MySpace/Planet/MusicThum';
 import MusicDesc from '../../components/MySpace/MusicDesc';
@@ -12,7 +12,7 @@ import MusicDesc from '../../components/MySpace/MusicDesc';
 export default function OuterPlanet({ route, navigation }: MySpaceOuterPlanetProp):ReactElement {
   return (
     <View style={styles.container}>
-      <Header route={route} navigation={navigation} />
+      <MySpaceHeader route={route} navigation={navigation} />
       <Planet>
         <MusicThum navigation={navigation}/>
       </Planet>

@@ -8,6 +8,12 @@ export type MainBottomTabNav = {
   SpaceJourney: undefined;
 }
 
+export interface MainbottomTabPorp {
+  route: RouteProp<MainBottomTabNav>
+  navigation: BottomTabNavigationProp<MainBottomTabNav>
+}
+
+
 export interface MainBottomTabMySpaceProp {
   route: RouteProp<MainBottomTabNav, 'MySpace'>
   navigation: BottomTabNavigationProp<MainBottomTabNav, 'MySpace'>

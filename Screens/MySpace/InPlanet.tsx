@@ -4,7 +4,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 import { MySpaceInPlanetProp } from "../../utils/types";
 
-import Header from '../../components/Header/Header';
+import MySpaceHeader from '../../components/Header/MySpaceHeader';
 import Planet from '../../components/MySpace/Planet/Planet';
 import InPlanetMenu from '../../components/MySpace/InPlanetMenu';
 import BottomMusicBar from '../../components/Music/BottomMusicBar';
@@ -51,7 +51,7 @@ export default function InPlanet({ route, navigation }: MySpaceInPlanetProp): Re
 
   return (
     <View style={styles.container} >
-      <Header route={route} navigation={navigation}/>
+      <MySpaceHeader route={route} navigation={navigation}/>
       <Animated.View style={{opacity: FadeInAnim}}>
         <InPlanetMenu/>
       </Animated.View>
