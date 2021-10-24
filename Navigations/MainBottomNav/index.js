@@ -9,7 +9,8 @@ import CustomTab from './CustumTab'
 const Tab = createBottomTabNavigator();
 const getTabBarVisible = ({navigation, route}) => {
   const routeName = getFocusedRouteNameFromRoute(route);
-  if (routeName === 'HobbyFeed' || routeName === 'JourneyGalaxy' || routeName === 'InPlanet') {
+  const invisibleTabRouteList = Array('InPlanet', 'Feed', 'JourneyGalaxy');
+  if (invisibleTabRouteList.includes(routeName)) {
     return { display: 'none' }
   }
 }
