@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import PagerView from 'react-native-pager-view';
-import { AntDesign } from '@expo/vector-icons'; 
+import { AntDesign } from '@expo/vector-icons';
 import axios from "axios";
 import { Buffer } from "buffer"
+import EStyleSheet from "react-native-extended-stylesheet";
 
+import BottomMusicBar from "../../components/Music/BottomMusicBar";
 import FeedHeader from '../../components/Header/FeedHeader';
 import HobbyContent from '../../components/Feed/HobbyContent';
 
@@ -77,13 +79,13 @@ export default function Feed({ navigation, route }) {
       <View style={styles.contentContainer}>
         <TouchableOpacity
           onPress={() => {
-            if (activeIndex != 0)
+            if (activeIndex !== 0)
               pager.current.setPage(activeIndex-1)
           }}
         >
           <AntDesign name="left" color="black" style={styles.arrowIcon}/>
         </TouchableOpacity>
-        {feedNum == 0 ? <Text style={styles.noticeText}>게시글이 없습니다.</Text> : <Text></Text>}
+        {feedNum === 0 ? <Text style={styles.noticeText}>게시글이 없습니다.</Text> : <Text></Text>}
         <PagerView
           ref={pager}
           onPageSelected={({ nativeEvent }) => setActiveIndex(nativeEvent.position)}
@@ -96,13 +98,14 @@ export default function Feed({ navigation, route }) {
 
         <TouchableOpacity
           onPress={() => {
-            if (activeIndex != feedNum-1)
+            if (activeIndex !== feedNum-1)
               pager.current.setPage(activeIndex+1)
           }}
         >
           <AntDesign name="right" color="black" style={styles.arrowIcon}/>
         </TouchableOpacity>
       </View>
+      <BottomMusicBar/>
     </View>
   )
 }

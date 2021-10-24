@@ -21,7 +21,7 @@ export default function FeedWrite({ navigation, route }) {
 
   useEffect(() => {
     (async () => {
-      requestPermisison();
+      await requestPermission();
       if (Platform.OS !== 'web') {
         const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
         if (status !== 'granted') {
@@ -31,7 +31,7 @@ export default function FeedWrite({ navigation, route }) {
     })();
   }, []);
 
-  const requestPermisison = async () => {
+  const requestPermission = async () => {
     const responseCamera = await Permissions.askAsync(Permissions.CAMERA);
     const responseMedia_library = await Permissions.askAsync(Permissions.MEDIA_LIBRARY);
   };

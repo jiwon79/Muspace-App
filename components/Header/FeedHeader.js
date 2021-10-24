@@ -1,32 +1,29 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { AntDesign } from '@expo/vector-icons'; 
+
+import styleGuide from "../../utils/styleGuide";
+import HeaderStyle from "../atom/HeaderStyle";
+import Back from './../../assets/icon/Back_white.svg'
+import EStyleSheet from "react-native-extended-stylesheet";
 
 export default function FeedHeader({ category, navigation }) {
   return (
-    <View style={styles.container}>
+    <View style={[HeaderStyle.header, styles.header]}>
       <TouchableOpacity onPress={() => navigation.navigate('InPlanet')}>
-        <AntDesign name='left'style={styles.icon}/>
+        <Back style={[HeaderStyle.icon]}/>
       </TouchableOpacity>
-      <Text style={styles.text}>{category}</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('FeedWrite')}>
-        <AntDesign name='plus'style={styles.icon}/>
-      </TouchableOpacity>
+      <Text style={[styleGuide.display_04, HeaderStyle.title]}>{category}</Text>
+      <View style={styles.empty}>
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 10,
-    backgroundColor: '#ddd'
+  header: {
+    backgroundColor: EStyleSheet.value('$darkGray_02')
   },
-  icon: {
-    fontSize: 24
-  },
-  text: {
-    fontSize: 20
+  empty: {
+    width: 24,
   }
 })
