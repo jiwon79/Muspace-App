@@ -4,7 +4,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 import {MySpaceOuterPlanetProp} from "../../utils/types";
 
-import MySpaceHeader from '../../components/Header/MySpaceHeader';
+import MySpaceHeader from '../../components/MySpace/MySpaceHeader';
 import Planet from '../../components/MySpace/Planet/Planet';
 import MusicThum from '../../components/MySpace/Planet/MusicThum';
 import MusicDesc from '../../components/MySpace/MusicDesc';

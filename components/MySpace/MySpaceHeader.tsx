@@ -1,15 +1,15 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, Image } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 
-import { MySpaceInPlanetProp } from "../../utils/types";
+import { MySpaceOuterPlanetProp } from "../../utils/types";
 
 import styleGuide from '../../utils/styleGuide';
 import HeaderStyle from "../atom/HeaderStyle";
-import Discovery from './../../assets/icon/Discovery_white.svg'
-import MainMenu from './../../assets/icon/MainMenu_white.svg'
-import Back from './../../assets/icon/Back_white.svg'
+import Discovery from '../../assets/icon/Discovery_white.svg'
+import MainMenu from '../../assets/icon/MainMenu_white.svg'
+import Back from '../../assets/icon/Back_white.svg'
 
-export default function MySpaceHeader({ route, navigation }: MySpaceInPlanetProp) {
+export default function MySpaceHeader({ route, navigation }: MySpaceOuterPlanetProp) {
   return (
     <View style={HeaderStyle.header}>
       {/*@ts-ignore*/}

@@ -4,7 +4,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import OuterPlanet from '../Screens/MySpace/OuterPlanet';
 import InPlanet from '../Screens/MySpace/InPlanet';
 import FeedNav from './FeedNav'
-import OuterPlanetSideNav from './OuterPlanetSideNav';
 
 const Stack = createStackNavigator();
 

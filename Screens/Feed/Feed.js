@@ -7,7 +7,7 @@ import { Buffer } from "buffer"
 import EStyleSheet from "react-native-extended-stylesheet";
 
 import BottomMusicBar from "../../components/Music/BottomMusicBar";
-import FeedHeader from '../../components/Header/FeedHeader';
+import FeedHeader from '../../components/Feed/FeedHeader';
 import HobbyContent from '../../components/Feed/HobbyContent';
 
 export default function Feed({ navigation, route }) {

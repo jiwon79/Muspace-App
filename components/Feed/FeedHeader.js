@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 import styleGuide from "../../utils/styleGuide";
 import HeaderStyle from "../atom/HeaderStyle";
-import Back from './../../assets/icon/Back_white.svg'
+import Back from '../../assets/icon/Back_white.svg'
 import EStyleSheet from "react-native-extended-stylesheet";
 
 export default function FeedHeader({ category, navigation }) {
