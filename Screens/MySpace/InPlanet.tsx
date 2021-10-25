@@ -5,10 +5,10 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import { MySpaceInPlanetProp } from "../../utils/types";
 
 import MySpaceHeader from '../../components/MySpace/MySpaceHeader';
-import Planet from '../../components/MySpace/Planet/Planet';
+import Planet from '../../components/MySpace/Planet';
 import InPlanetMenu from '../../components/MySpace/InPlanetMenu';
 import BottomMusicBar from '../../components/Music/BottomMusicBar';
-import LifeCategory from '../../components/MySpace/LifeCategory/LifeCategory';
+import LifeCategory from '../../components/MySpace/LifeCategory';
 
 export default function InPlanet({ route, navigation }: MySpaceInPlanetProp): ReactElement {
   const ScaleAnim = useRef(new Animated.Value(1)).current;
@@ -42,9 +42,9 @@ export default function InPlanet({ route, navigation }: MySpaceInPlanetProp): Re
         useNativeDriver: true
       }
     )
-    
+
     Animated.sequence([
-      Animated.parallel([planetScale, planetTranslate]), 
+      Animated.parallel([planetScale, planetTranslate]),
       hobbyFadeIn
     ]).start();
   }, [ScaleAnim, TranslateAnim, FadeInAnim])
