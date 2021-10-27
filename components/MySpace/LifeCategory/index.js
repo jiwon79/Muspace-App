@@ -18,7 +18,7 @@ export default function LifeCategory({ navigation }) {
     <View style={styles.container}>
       <View style={styles.buttonView}>
         <TouchableHighlight
-          onPress={() => navigation.navigate('FeedWrite', '취미')}
+          onPress={() => navigation.navigate('FeedWrite')}
           style={styles.button}
         >
           <View>

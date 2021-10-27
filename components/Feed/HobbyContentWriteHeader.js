@@ -5,7 +5,7 @@ import { AntDesign } from '@expo/vector-icons';
 export default function HobbyContentWriteHeader({ navigation, hobby }) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
         <AntDesign name='left'style={styles.icon}/>
       </TouchableOpacity>
       <Text style={styles.text}>{hobby}</Text>
