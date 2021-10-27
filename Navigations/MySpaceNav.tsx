@@ -3,7 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import OuterPlanet from '../Screens/MySpace/OuterPlanet';
 import InPlanet from '../Screens/MySpace/InPlanet';
-import FeedNav from './FeedNav'
+import Feed from '../Screens/Feed/Feed'
+import FeedWrite from '../Screens/Feed/FeedWrite'
 
 const Stack = createStackNavigator();
 
@@ -29,7 +30,11 @@ export default function MySpaceNav():ReactElement {
       />
       <Stack.Screen 
         name="Feed"
-        component={FeedNav}
+        component={Feed}
+      />
+      <Stack.Screen
+        name="FeedWrite"
+        component={FeedWrite}
       />
     </Stack.Navigator>
   )

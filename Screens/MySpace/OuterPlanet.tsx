@@ -2,7 +2,7 @@ import React, { useRef, useState, ReactElement } from 'react'
 import { View, Text, Button, Animated } from 'react-native'
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-import {MySpaceOuterPlanetProp} from "../../utils/types";
+import {MySpaceOuterPlanetProp} from "../../utils/common/types";
 
 import MySpaceHeader from '../../components/MySpace/MySpaceHeader';
 import Planet from '../../components/MySpace/Planet';

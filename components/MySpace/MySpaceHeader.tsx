@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 
-import { MySpaceOuterPlanetProp } from "../../utils/types";
-import { MySpaceInPlanetProp } from "../../utils/types";
+import { MySpaceOuterPlanetProp } from "../../utils/common/types";
+import { MySpaceInPlanetProp } from "../../utils/common/types";
 
 import styleGuide from '../../utils/styleGuide';
 import HeaderStyle from "../atom/HeaderStyle";
