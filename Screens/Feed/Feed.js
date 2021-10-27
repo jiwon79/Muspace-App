@@ -4,11 +4,12 @@ import PagerView from 'react-native-pager-view';
 import { AntDesign } from '@expo/vector-icons';
 import axios from "axios";
 import { Buffer } from "buffer"
-import EStyleSheet from "react-native-extended-stylesheet";
 
 import BottomMusicBar from "../../components/Music/BottomMusicBar";
 import FeedHeader from '../../components/Feed/FeedHeader';
 import HobbyContent from '../../components/Feed/HobbyContent';
+
+import getFeedList from "../../utils/api/getFeedList";
 
 export default function Feed({ navigation, route }) {
   const category = route.params.category;
@@ -19,31 +20,28 @@ export default function Feed({ navigation, route }) {
   const pager = useRef(0);
   const [feedNum, setFeedNum] = useState(0);
   const [feedComponents, setFeedComponents] = useState(null);
+  const [networkError, setNetworkError] = useState(false);
 
   const fetchFeedData = async () => {
-    const feedFetchData = await axios.get(APIURL+'get_post?category='+category)
-    .then(function (response) {
-      return response.data
-    })
-    .catch(function (error) {
-      console.log(error);
-      console.log("error");
-    });
-    console.log(feedFetchData);
-    setFeedList(feedFetchData);
+    const feedFetchData = await getFeedList();
 
-    for (let i=0; i<feedFetchData.length; i++) {
-      const postId = feedFetchData[i].id;
-      const imageResponse = await axios.get(APIURL+'get_image?post_id='+postId, {
-        responseType: 'arraybuffer'
-      });
-      const imageData = await Buffer.from(imageResponse.data, 'binary').toString('base64');
-      const imageURI = await 'data:image/png;base64,' + imageData;
-      console.log(postId);
-      setFeedList(feedList => [
-        ...feedList,
-        feedList[i].imageURL = imageURI
-      ]);
+    if (!networkError) {
+      console.log(feedFetchData);
+      setFeedList(feedFetchData);
+
+      for (let i=0; i<feedFetchData.length; i++) {
+        const postId = feedFetchData[i].id;
+        const imageResponse = await axios.get(APIURL+'get_image?post_id='+postId, {
+          responseType: 'arraybuffer'
+        });
+        const imageData = await Buffer.from(imageResponse.data, 'binary').toString('base64');
+        const imageURI = await 'data:image/png;base64,' + imageData;
+        console.log(postId);
+        setFeedList(feedList => [
+          ...feedList,
+          feedList[i].imageURL = imageURI
+        ]);
+      }
     }
   }
 
