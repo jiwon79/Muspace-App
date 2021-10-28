@@ -4,10 +4,13 @@ import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
 import { FontAwesome } from '@expo/vector-icons'; 
 import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
+import { Platform } from 'react-native';
 
+import InputImageHeader from "../../components/Feed/WriteFeed/InputImageHeader";
 import WriteFeedHeader from '../../components/Feed/WriteFeed/WriteFeedHeader';
 import ButtonModule from '../../components/atom/ButtonModule';
-import { Platform } from 'react-native';
+import CameraButton from "../../components/Feed/WriteFeed/Button/CameraButton";
+import GalleryButton from "../../components/Feed/WriteFeed/Button/GalleryButton";
 
 export default function WriteFeed({ navigation, route }) {
   // const hobby = route.params.hobby;
@@ -99,10 +102,13 @@ export default function WriteFeed({ navigation, route }) {
 
   return (
     <View>
+      <InputImageHeader/>
       <WriteFeedHeader
         navigation={navigation}
         hobby={hobby}
       />
+      <CameraButton/>
+      <GalleryButton/>
       {image ? 
         <Image 
           source={{ uri: image.uri }} 
