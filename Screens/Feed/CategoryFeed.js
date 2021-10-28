@@ -6,8 +6,8 @@ import axios from "axios";
 import { Buffer } from "buffer"
 
 import BottomMusicBar from "../../components/Music/BottomMusicBar";
-import FeedHeader from '../../components/Feed/CategoryFeed/FeedHeader';
-import HobbyContent from '../../components/Feed/CategoryFeed/HobbyContent';
+import CategoryFeedHeader from '../../components/Feed/CategoryFeed/CategoryFeedHeader';
+import FeedContent from '../../components/Feed/CategoryFeed/FeedContent';
 
 import getFeedList from "../../utils/api/getFeedList";
 
@@ -55,7 +55,7 @@ export default function CategoryFeed({ navigation, route }) {
       const components = feedList.map((feed, index) =>{
         return (
           <View key={index+1}>
-            <HobbyContent
+            <FeedContent
               title={feed.title}
               content={feed.contents}
               imageURL={feed.imageURL}
@@ -70,7 +70,7 @@ export default function CategoryFeed({ navigation, route }) {
 
   return (
     <View style={styles.container}>
-      <FeedHeader
+      <CategoryFeedHeader
         category={category}
         navigation={navigation}
       />

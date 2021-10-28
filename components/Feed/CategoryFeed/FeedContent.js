@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
 
-export default function HobbyContent({ imageURL, title, content }) {
+export default function FeedContent({ imageURL, title, content }) {
   return (
     <View style={styles.container}>
       <Image source={{uri: imageURL}} style={styles.image}/>

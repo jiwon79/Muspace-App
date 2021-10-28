@@ -5,7 +5,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { FontAwesome } from '@expo/vector-icons'; 
 import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
 
-import HobbyContentWriteHeader from '../../components/Feed/HobbyContentWriteHeader';
+import WriteFeedHeader from '../../components/Feed/WriteFeed/WriteFeedHeader';
 import ButtonModule from '../../components/atom/ButtonModule';
 import { Platform } from 'react-native';
 
@@ -99,7 +99,7 @@ export default function WriteFeed({ navigation, route }) {
 
   return (
     <View>
-      <HobbyContentWriteHeader
+      <WriteFeedHeader
         navigation={navigation}
         hobby={hobby}
       />

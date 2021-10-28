@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'; 
 
-export default function HobbyContentWriteHeader({ navigation, hobby }) {
+export default function WriteFeedHeader({ navigation, hobby }) {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => navigation.goBack()}>

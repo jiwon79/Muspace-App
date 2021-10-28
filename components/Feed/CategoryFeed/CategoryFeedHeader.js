@@ -6,7 +6,7 @@ import HeaderStyle from "../../atom/HeaderStyle";
 import Back from '../../../assets/icon/Back_white32.svg'
 import EStyleSheet from "react-native-extended-stylesheet";
 
-export default function FeedHeader({ category, navigation }) {
+export default function CategoryFeedHeader({ category, navigation }) {
   return (
     <View style={[HeaderStyle.header, styles.header]}>
       <TouchableOpacity onPress={() => navigation.navigate('InPlanet')}>
