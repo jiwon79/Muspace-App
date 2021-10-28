@@ -9,7 +9,7 @@ import HobbyContentWriteHeader from '../../components/Feed/HobbyContentWriteHead
 import ButtonModule from '../../components/atom/ButtonModule';
 import { Platform } from 'react-native';
 
-export default function FeedWrite({ navigation, route }) {
+export default function WriteFeed({ navigation, route }) {
   // const hobby = route.params.hobby;
   const hobby = '취미';
   const APIURL = 'http://1e14-121-152-26-223.ngrok.io/';

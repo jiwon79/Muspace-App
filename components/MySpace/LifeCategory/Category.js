@@ -8,7 +8,7 @@ export default function Category({ category, navigation }) {
   return (
     <TouchableHighlight
       style={styles.category}
-      onPress={() => navigation.navigate('Feed', {category})}
+      onPress={() => navigation.navigate('CategoryFeed', {category})}
     >
       <Text style={[styles.text, styleGuide.display_06]}>{category}</Text>
     </TouchableHighlight>

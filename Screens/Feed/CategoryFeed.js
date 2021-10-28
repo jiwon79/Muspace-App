@@ -6,12 +6,12 @@ import axios from "axios";
 import { Buffer } from "buffer"
 
 import BottomMusicBar from "../../components/Music/BottomMusicBar";
-import FeedHeader from '../../components/Feed/FeedHeader';
-import HobbyContent from '../../components/Feed/HobbyContent';
+import FeedHeader from '../../components/Feed/CategoryFeed/FeedHeader';
+import HobbyContent from '../../components/Feed/CategoryFeed/HobbyContent';
 
 import getFeedList from "../../utils/api/getFeedList";
 
-export default function Feed({ navigation, route }) {
+export default function CategoryFeed({ navigation, route }) {
   const category = route.params.category;
   const APIURL = 'http://1e14-121-152-26-223.ngrok.io/';
 
