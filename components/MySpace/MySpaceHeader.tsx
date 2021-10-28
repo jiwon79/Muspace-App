@@ -6,9 +6,9 @@ import { MySpaceInPlanetProp } from "../../utils/common/types";
 
 import styleGuide from '../../utils/styleGuide';
 import HeaderStyle from "../atom/HeaderStyle";
-import Discovery from '../../assets/icon/Discovery_white.svg'
-import MainMenu from '../../assets/icon/MainMenu_white.svg'
-import Back from '../../assets/icon/Back_white.svg'
+import Discovery from '../../assets/icon/Discovery_white32.svg'
+import MainMenu from '../../assets/icon/MainMenu_white32.svg'
+import Back from '../../assets/icon/Back_white32.svg'
 
 export default function MySpaceHeader(
   { route, navigation }: MySpaceOuterPlanetProp | MySpaceInPlanetProp)
@@ -18,12 +18,12 @@ export default function MySpaceHeader(
       {/*@ts-ignore*/}
       {route.name === 'OuterPlanet'
       ? <TouchableOpacity>
-          <Discovery style={[HeaderStyle.icon]}/>
+          <Discovery/>
         </TouchableOpacity>
       : <TouchableOpacity
           onPress={() => {navigation.goBack()}}
         >
-          <Back style={[HeaderStyle.icon]}/>
+          <Back/>
         </TouchableOpacity>
       }
 
@@ -32,7 +32,7 @@ export default function MySpaceHeader(
       </Text>
 
       <TouchableOpacity>
-        <MainMenu style={[HeaderStyle.icon]}/>
+        <MainMenu/>
       </TouchableOpacity>
     </View>
   )

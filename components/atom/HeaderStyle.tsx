@@ -2,7 +2,7 @@ import EStyleSheet from "react-native-extended-stylesheet";
 
 const HeaderStyle = EStyleSheet.create({
   header: {
-    height: 80,
+    height: 72,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
