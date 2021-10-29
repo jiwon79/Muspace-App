@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { SafeAreaView, View, Text, Platform } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
-import { createStore } from 'redux';
+
+import { createStore, applyMiddleware } from 'redux';
 import { Provider, useSelector, useDispatch } from "react-redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { RootState } from "./modules";
+import logger from 'redux-logger';
+import ReduxThunk from 'redux-thunk'
+
 import { useFonts } from 'expo-font'
 import EStyleSheet from 'react-native-extended-stylesheet';
 
@@ -14,10 +18,9 @@ import LandingNav from './Navigations/LandingNav';
 import MainBottomNav from './Navigations/MainBottomNav';
 
 export default function AppWrapper() {
-  const store = createStore(
-    rootReducer,
-    composeWithDevTools()
-  );
+  const store = createStore(rootReducer, composeWithDevTools(
+    applyMiddleware(ReduxThunk, logger),
+  ));
 
   console.log(store.getState());
   return (

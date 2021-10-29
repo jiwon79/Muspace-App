@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { useSelector, useDispatch } from "react-redux";
 import PagerView from 'react-native-pager-view';
 import { AntDesign } from '@expo/vector-icons';
 import axios from "axios";
@@ -9,9 +10,21 @@ import BottomMusicBar from "../../components/Music/BottomMusicBar";
 import CategoryFeedHeader from '../../components/Feed/CategoryFeed/CategoryFeedHeader';
 import FeedContent from '../../components/Feed/CategoryFeed/FeedContent';
 
-import getFeedList from "../../utils/api/getFeedList";
+import { getFeeds } from "../../modules/categoryFeed";
 
 export default function CategoryFeed({ navigation, route }) {
+  const { data, loading, error } = useSelector(state => state.categoryFeed.feeds);
+  console.log(data, loading, error)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getFeeds());
+  }, [dispatch])
+
+  if (loading) return <View><Text>loading...</Text></View>
+  if (error) return <View><Text>error</Text></View>
+  return  <View><Text>{JSON.stringify(data)}</Text></View>
+
   const category = route.params.category;
   const APIURL = 'http://1e14-121-152-26-223.ngrok.io/';
 
@@ -22,50 +35,59 @@ export default function CategoryFeed({ navigation, route }) {
   const [feedComponents, setFeedComponents] = useState(null);
   const [networkError, setNetworkError] = useState(false);
 
-  const fetchFeedData = async () => {
-    const feedFetchData = await getFeedList();
+  // const fetchFeedData = async () => {
+  //   const feedFetchData = await axios.get(APIURL+'get_post?category='+category)
+  //     .then(function (response) {
+  //       return response.data
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //       console.log("error");
+  //     });
+  //   console.log(feedFetchData);
+  //   setFeedList(feedFetchData);
+  //
+  //   if (!networkError) {
+  //     console.log(feedFetchData);
+  //     setFeedList(feedFetchData);
+  //
+  //     for (let i=0; i<feedFetchData.length; i++) {
+  //       const postId = feedFetchData[i].id;
+  //       const imageResponse = await axios.get(APIURL+'get_image?post_id='+postId, {
+  //         responseType: 'arraybuffer'
+  //       });
+  //       const imageData = await Buffer.from(imageResponse.data, 'binary').toString('base64');
+  //       const imageURI = await 'data:image/png;base64,' + imageData;
+  //       console.log(postId);
+  //       setFeedList(feedList => [
+  //         ...feedList,
+  //         feedList[i].imageURL = imageURI
+  //       ]);
+  //     }
+  //   }
+  // }
 
-    if (!networkError) {
-      console.log(feedFetchData);
-      setFeedList(feedFetchData);
+  // useEffect(() => {
+  //   fetchFeedData();
+  // }, []);
 
-      for (let i=0; i<feedFetchData.length; i++) {
-        const postId = feedFetchData[i].id;
-        const imageResponse = await axios.get(APIURL+'get_image?post_id='+postId, {
-          responseType: 'arraybuffer'
-        });
-        const imageData = await Buffer.from(imageResponse.data, 'binary').toString('base64');
-        const imageURI = await 'data:image/png;base64,' + imageData;
-        console.log(postId);
-        setFeedList(feedList => [
-          ...feedList,
-          feedList[i].imageURL = imageURI
-        ]);
-      }
-    }
-  }
-
-  useEffect(() => {
-    fetchFeedData();
-  }, []);
-
-  useEffect(() => {
-    if (feedList != null) {
-      setFeedNum(feedList.length);
-      const components = feedList.map((feed, index) =>{
-        return (
-          <View key={index+1}>
-            <FeedContent
-              title={feed.title}
-              content={feed.contents}
-              imageURL={feed.imageURL}
-            />
-          </View>
-        )});
-      setFeedComponents(components);
-      pager.current.setPage(activeIndex)
-    }
-  }, [feedList, feedNum])
+  // useEffect(() => {
+  //   if (feedList != null) {
+  //     setFeedNum(feedList.length);
+  //     const components = feedList.map((feed, index) =>{
+  //       return (
+  //         <View key={index+1}>
+  //           <FeedContent
+  //             title={feed.title}
+  //             content={feed.contents}
+  //             imageURL={feed.imageURL}
+  //           />
+  //         </View>
+  //       )});
+  //     setFeedComponents(components);
+  //     pager.current.setPage(activeIndex)
+  //   }
+  // }, [feedList, feedNum])
 
 
   return (
@@ -87,7 +109,7 @@ export default function CategoryFeed({ navigation, route }) {
         <PagerView
           ref={pager}
           onPageSelected={({ nativeEvent }) => setActiveIndex(nativeEvent.position)}
-          style={styles.viewPager} 
+          style={styles.viewPager}
           initialPage={0}
           showPageIndicator={true}
         >
