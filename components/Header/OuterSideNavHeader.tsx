@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { AntDesign } from '@expo/vector-icons';
 
-import { OuterPlanetDrawerNavProp } from '../../utils/common/types';
+import { OuterPlanetDrawerNavProp } from '../../common/utils/types';
 
 export default function OuterSideNavHeader({ route, navigation }: OuterPlanetDrawerNavProp) {
   return (

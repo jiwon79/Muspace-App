@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, FlatList, StyleSheet } from 'react-native'
 
-import { JourneyGalaxyStackProp } from '../../utils/common/types'
+import { JourneyGalaxyStackProp } from '../../common/utils/types'
 import JourneyGalaxyHeader from '../../components/Header/JourneyGalaxyHeader'
 import MusicPlanet from '../../components/SpaceJourney/MusicPlanet'
 import BottomMusicBar from '../../components/Music/BottomMusicBar'
