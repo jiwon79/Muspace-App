@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, ImageBackground } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-import styleGuide from '../../utils/styleGuide';
+import styleGuide from '../../common/utils/styleGuide';
 import Pause from './../../assets/icon/Pause_white.svg'
 
 export default function BottomMusicBar() {

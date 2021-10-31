@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { MySpaceOuterPlanetProp } from "../../common/utils/types";
 import { MySpaceInPlanetProp } from "../../common/utils/types";
 
-import styleGuide from '../../utils/styleGuide';
+import styleGuide from '../../common/utils/styleGuide';
 import HeaderStyle from "../atom/HeaderStyle";
 import Discovery from '../../assets/icon/Discovery_white32.svg'
 import MainMenu from '../../assets/icon/MainMenu_white32.svg'

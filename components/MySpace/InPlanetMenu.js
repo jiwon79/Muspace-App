@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-import styleGuide from "../../utils/styleGuide";
+import styleGuide from "../../common/utils/styleGuide";
 import Calendar from './../../assets/icon/Calendar_white.svg'
 import PlayList from './../../assets/icon/Playlist_white.svg'
 import Footprint from './../../assets/icon/FootPrint_white.svg'

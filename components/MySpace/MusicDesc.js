@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-import styleGuide from '../../utils/styleGuide';
+import styleGuide from '../../common/utils/styleGuide';
 
 export default function MusicDesc() {
   return (

@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 import EStyleSheet from "react-native-extended-stylesheet";
 import HeaderStyle from "../../atom/HeaderStyle";
-import styleGuide from "../../../utils/styleGuide";
+import styleGuide from "../../../common/utils/styleGuide";
 
 import Back from '../../../assets/icon/Back_white32.svg'
 import Next from '../../../assets/icon/Next_white32.svg'

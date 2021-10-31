@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import Camera from '../../../../assets/icon/Camera.svg'
-import styleGuide from "../../../../utils/styleGuide";
+import styleGuide from "../../../../common/utils/styleGuide";
 
 export default function CameraButton() {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-import styleGuide from "../../../utils/styleGuide";
+import styleGuide from "../../../common/utils/styleGuide";
 import HeaderStyle from "../../atom/HeaderStyle";
 import Back from '../../../assets/icon/Back_white32.svg'
 import EStyleSheet from "react-native-extended-stylesheet";

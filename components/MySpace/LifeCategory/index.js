@@ -4,7 +4,7 @@ import {TouchableHighlight} from 'react-native-gesture-handler'
 import EStyleSheet from 'react-native-extended-stylesheet'
 
 import Category from "./Category";
-import styleGuide from "../../../utils/styleGuide";
+import styleGuide from "../../../common/utils/styleGuide";
 import Plus from './../../../assets/icon/Plus.svg'
 
 const lifeCategoryList = ['취미', '음식', '여행', '책', '운동', '문화생활', '음악', '공부', '게임'];

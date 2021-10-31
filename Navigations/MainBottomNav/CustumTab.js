@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-import styleGuide from '../../utils/styleGuide';
+import styleGuide from '../../common/utils/styleGuide';
 import MySpaceIcon from '../../assets/icon/MySpace.svg'
 import MySpaceIcon_white from '../../assets/icon/MySpace_white.svg'
 import SpaceJourney from '../../assets/icon/SpaceJourney.svg'
