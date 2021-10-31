@@ -16,15 +16,6 @@ export default function CategoryFeed({ navigation, route }) {
   const { data, loading, error } = useSelector(state => state.categoryFeed.feeds);
   console.log(data, loading, error)
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getFeeds());
-  }, [dispatch])
-
-  if (loading) return <View><Text>loading...</Text></View>
-  if (error) return <View><Text>error</Text></View>
-  return  <View><Text>{JSON.stringify(data)}</Text></View>
-
   const category = route.params.category;
   const APIURL = 'http://1e14-121-152-26-223.ngrok.io/';
 
@@ -34,6 +25,14 @@ export default function CategoryFeed({ navigation, route }) {
   const [feedNum, setFeedNum] = useState(0);
   const [feedComponents, setFeedComponents] = useState(null);
   const [networkError, setNetworkError] = useState(false);
+
+  useEffect(() => {
+    dispatch(getFeeds());
+    setFeedList(data);
+  }, [dispatch])
+
+
+
 
   // const fetchFeedData = async () => {
   //   const feedFetchData = await axios.get(APIURL+'get_post?category='+category)
@@ -89,6 +88,9 @@ export default function CategoryFeed({ navigation, route }) {
   //   }
   // }, [feedList, feedNum])
 
+  if (loading) return <View><Text>loading...</Text></View>
+  if (error) return <View><Text>error</Text></View>
+  // return  <View><Text>{JSON.stringify(data)}</Text></View>
 
   return (
     <View style={styles.container}>
@@ -105,25 +107,29 @@ export default function CategoryFeed({ navigation, route }) {
         >
           <AntDesign name="left" color="black" style={styles.arrowIcon}/>
         </TouchableOpacity>
-        {feedNum === 0 ? <Text style={styles.noticeText}>게시글이 없습니다.</Text> : <Text></Text>}
-        <PagerView
-          ref={pager}
-          onPageSelected={({ nativeEvent }) => setActiveIndex(nativeEvent.position)}
-          style={styles.viewPager}
-          initialPage={0}
-          showPageIndicator={true}
-        >
-          {feedComponents}
-        </PagerView>
+        <Text>
+          {JSON.stringify(data)}
+        </Text>
 
-        <TouchableOpacity
-          onPress={() => {
-            if (activeIndex !== feedNum-1)
-              pager.current.setPage(activeIndex+1)
-          }}
-        >
-          <AntDesign name="right" color="black" style={styles.arrowIcon}/>
-        </TouchableOpacity>
+        {/*{feedNum === 0 ? <Text style={styles.noticeText}>게시글이 없습니다.</Text> : <Text></Text>}*/}
+        {/*<PagerView*/}
+        {/*  ref={pager}*/}
+        {/*  onPageSelected={({ nativeEvent }) => setActiveIndex(nativeEvent.position)}*/}
+        {/*  style={styles.viewPager}*/}
+        {/*  initialPage={0}*/}
+        {/*  showPageIndicator={true}*/}
+        {/*>*/}
+        {/*  {feedComponents}*/}
+        {/*</PagerView>*/}
+
+        {/*<TouchableOpacity*/}
+        {/*  onPress={() => {*/}
+        {/*    if (activeIndex !== feedNum-1)*/}
+        {/*      pager.current.setPage(activeIndex+1)*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  <AntDesign name="right" color="black" style={styles.arrowIcon}/>*/}
+        {/*</TouchableOpacity>*/}
       </View>
       <BottomMusicBar/>
     </View>
