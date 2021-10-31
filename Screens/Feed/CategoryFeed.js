@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native'
 import { useSelector, useDispatch } from "react-redux";
 import PagerView from 'react-native-pager-view';
 import { AntDesign } from '@expo/vector-icons';
@@ -27,7 +27,7 @@ export default function CategoryFeed({ navigation, route }) {
   const [networkError, setNetworkError] = useState(false);
 
   useEffect(() => {
-    dispatch(getFeeds());
+    dispatch(getFeeds({category}));
     setFeedList(data);
   }, [dispatch])
 
@@ -99,17 +99,22 @@ export default function CategoryFeed({ navigation, route }) {
         navigation={navigation}
       />
       <View style={styles.contentContainer}>
-        <TouchableOpacity
-          onPress={() => {
-            if (activeIndex !== 0)
-              pager.current.setPage(activeIndex-1)
-          }}
-        >
-          <AntDesign name="left" color="black" style={styles.arrowIcon}/>
-        </TouchableOpacity>
-        <Text>
-          {JSON.stringify(data)}
-        </Text>
+        {/*<TouchableOpacity*/}
+        {/*  onPress={() => {*/}
+        {/*    if (activeIndex !== 0)*/}
+        {/*      pager.current.setPage(activeIndex-1)*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  <AntDesign name="left" color="black" style={styles.arrowIcon}/>*/}
+        {/*</TouchableOpacity>*/}
+        <FlatList
+          keyExtractor={item => JSON.stringify(item)}
+          data={data}
+          renderItem={({item}) => <FeedContent feed={item}/>}
+        />
+        {/*<Text>*/}
+        {/*  {JSON.stringify(data)}*/}
+        {/*</Text>*/}
 
         {/*{feedNum === 0 ? <Text style={styles.noticeText}>게시글이 없습니다.</Text> : <Text></Text>}*/}
         {/*<PagerView*/}

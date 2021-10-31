@@ -1,4 +1,5 @@
-import * as feedsAPI from '../utils/api/dummy'
+import * as feedsAPI from '../common/api/dummy'
+import {getFeedList} from "../common/api/getFeedList";
 
 const GET_FEEDS = 'categoryFeed/GET_FEEDS';
 const GET_FEEDS_SUCCESS = 'categoryFeed/GET_FEEDS_SUCCESS';
@@ -8,10 +9,10 @@ const GET_FEED = 'categoryFeed/GET_FEED';
 const GET_FEED_SUCCESS = 'categoryFeed/GET_FEED_SUCCESS';
 const GET_FEED_ERROR = 'categoryFeed/GET_FEED_ERROR';
 
-export const getFeeds = () => async dispatch => {
+export const getFeeds = ({category}) => async dispatch => {
   dispatch({ type: GET_FEEDS });
   try {
-    const feeds = await feedsAPI.getFeeds();
+    const feeds = await getFeedList({category});
     dispatch({ type: GET_FEEDS_SUCCESS, feeds });
   } catch (e) {
     dispatch({ type: GET_FEEDS_ERROR, error: e });

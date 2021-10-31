@@ -28,6 +28,7 @@
     "expo-image-picker": "~10.2.2",
     "expo-permissions": "~12.1.1",
     "expo-status-bar": "^1.0.4",
+    "impagination": "^1.0.0",
     "node": "^16.9.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -51,6 +52,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.4.0",
     "typesafe-actions": "^5.1.0",
+    "util": "^0.12.4",
     "yarn": "^1.22.11"
   },
   "devDependencies": {
